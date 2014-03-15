@@ -1,0 +1,19 @@
+---
+:source:
+  :path: test
+  :file: test_ShuntingYard.c
+:successes:
+- :test: test_evaluate_2_PLUS_3
+  :line: 21
+  :message: ''
+:failures:
+- :test: test_shunting_yard_should_return_0_if_the_expression_is_null
+  :line: 10
+  :message: Function 'initTokenizer' called less times than expected.
+:ignores: []
+:counts:
+  :total: 2
+  :passed: 1
+  :failed: 1
+  :ignored: 0
+:stdout: []
