@@ -13,6 +13,8 @@ void tearDown(void){}
 
 void test_shunting_yard_should_return_0_if_the_expression_is_null(){
 
+ int check;
+
  Tokenizer tokenizer = {.rawString = "0", .startIndex = 0, .length = 1};
 
 
@@ -23,13 +25,17 @@ void test_shunting_yard_should_return_0_if_the_expression_is_null(){
 
 
 
- initTokenizer_CMockExpectAndReturn(16, "0", &tokenizer);
+ initTokenizer_CMockExpectAndReturn(17, ((void *)0), &tokenizer);
 
 
 
+ check=shuntingYard(((void *)0));
 
+ UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((check)), (((void *)0)), (_U_UINT)20, UNITY_DISPLAY_STYLE_INT);
 
 }
+
+
 
 
 
@@ -63,35 +69,29 @@ void test_evaluate_2_PLUS_3(void){
 
 
 
- initTokenizer_CMockExpectAndReturn(36, "2+3", &tokenizer);
+ initTokenizer_CMockExpectAndReturn(39, "2+3", &tokenizer);
 
- getToken_CMockExpectAndReturn(37, &tokenizer, token1);
+ getToken_CMockExpectAndReturn(40, &tokenizer, token1);
 
- stackPush_CMockExpect(38, token1, &numStack);
+ stackPush_CMockExpect(41, token1, &numStack);
 
- getToken_CMockExpectAndReturn(39, &tokenizer, token2);
+ getToken_CMockExpectAndReturn(42, &tokenizer, token2);
 
- stackPush_CMockExpect(40, token2, &opeStack);
+ stackPush_CMockExpect(43, token2, &opeStack);
 
- getToken_CMockExpectAndReturn(41, &tokenizer, token3);
+ getToken_CMockExpectAndReturn(44, &tokenizer, token3);
 
- stackPush_CMockExpect(42, token3, &numStack);
+ stackPush_CMockExpect(45, token3, &numStack);
 
- getToken_CMockExpectAndReturn(43, &tokenizer, ((void *)0));
-
-
-
- stackPop_CMockExpectAndReturn(45, &opeStack, token2);
+ getToken_CMockExpectAndReturn(46, &tokenizer, ((void *)0));
 
 
 
+ stackPop_CMockExpectAndReturn(48, &opeStack, token2);
 
+ stackPop_CMockExpectAndReturn(49, &numStack, token3);
 
- stackPop_CMockExpectAndReturn(48, &opeStack, ((void *)0));
-
- stackPop_CMockExpectAndReturn(49, &numStack, ((void *)0));
-
-
+ stackPop_CMockExpectAndReturn(50, &numStack, token1);
 
 
 

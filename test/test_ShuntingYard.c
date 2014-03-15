@@ -8,16 +8,19 @@ void setUp(void){}
 void tearDown(void){}
 
 void test_shunting_yard_should_return_0_if_the_expression_is_null(){
+	int check;
 	Tokenizer tokenizer = {.rawString = "0", .startIndex = 0, .length = 1};
 	
 	Number number2 = {.type= NUMBER, .value=0};
 	Token *token1 = (Token*)&number2;
 	
-	initTokenizer_ExpectAndReturn("0",&tokenizer);
+	initTokenizer_ExpectAndReturn(NULL,&tokenizer);
 	
-
+	check=shuntingYard(NULL);
+	TEST_ASSERT_EQUAL(0,check);
 }
-	
+
+
 void test_evaluate_2_PLUS_3(void){
 	int check;
 	//Initialize tokenizer,token and stack
@@ -43,11 +46,8 @@ void test_evaluate_2_PLUS_3(void){
 	getToken_ExpectAndReturn(&tokenizer,NULL);
 
 	stackPop_ExpectAndReturn(&opeStack,token2);
-	//stackPop_ExpectAndReturn(&numStack,token3);
-	//stackPop_ExpectAndReturn(&numStack,token1);
-	stackPop_ExpectAndReturn(&opeStack,NULL);
-	stackPop_ExpectAndReturn(&numStack,NULL);
-	
+	stackPop_ExpectAndReturn(&numStack,token3);
+	stackPop_ExpectAndReturn(&numStack,token1);
 	
 	shuntingYard("2+3");
 }

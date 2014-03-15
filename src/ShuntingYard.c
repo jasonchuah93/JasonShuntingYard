@@ -22,14 +22,15 @@ Stack opeStack;
 int shuntingYard(char *expression){
 	Tokenizer *tokenizer;
 	Token *token;
-	
-	tokenizer = initTokenizer(expression);
 	int i;
 	int counter =0;
 	
+	tokenizer = initTokenizer(expression);
 	if(expression ==NULL){	
 		return 0;
 	}
+	
+	
 	while((token = getToken(tokenizer))!=NULL){
 		
 		if(token == NUMBER){
@@ -40,8 +41,8 @@ int shuntingYard(char *expression){
 			stackPush(token,&opeStack);
 		}
 		counter ++;
-	
 	}
+	
 	for(i=0;i<counter;i++){
 		if(token == NUMBER){
 			token = stackPop(&numStack);
@@ -52,4 +53,5 @@ int shuntingYard(char *expression){
 		}
 	}
 	return counter;
+	
 }
