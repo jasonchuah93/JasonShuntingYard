@@ -1,11 +1,8 @@
 #ifndef __STACK_H__
 #define __STACK_H__
 
-
-
 typedef struct Stack_t{
-	void *numberStack;
-	void *operatorStack;
+	void *topOfStack;
 }Stack;
 
 //Function declaration

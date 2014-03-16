@@ -4,15 +4,9 @@
 
 
 
-
-
-
-
 typedef struct Stack_t{
 
- void *numberStack;
-
- void *operatorStack;
+ void *topOfStack;
 
 }Stack;
 

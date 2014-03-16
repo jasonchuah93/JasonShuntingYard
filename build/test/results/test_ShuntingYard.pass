@@ -4,16 +4,22 @@
   :file: test_ShuntingYard.c
 :successes:
 - :test: test_shunting_yard_should_return_0_if_the_expression_is_null
-  :line: 10
+  :line: 15
   :message: ''
 - :test: test_evaluate_2_PLUS_3
-  :line: 24
+  :line: 29
+  :message: ''
+- :test: test_evaluate_2_PLUS_3_MULTIPLY_4
+  :line: 73
+  :message: ''
+- :test: test_evaluate_2_MULTIPLY_3_PLUS_4
+  :line: 133
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 2
-  :passed: 2
+  :total: 4
+  :passed: 4
   :failed: 0
   :ignored: 0
 :stdout: []

@@ -17,5 +17,17 @@ void getToken_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, Token* cmock_to_r
 void getToken_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, Tokenizer* tokenizer, Token* cmock_to_return);
 typedef Token* (* CMOCK_getToken_CALLBACK)(Tokenizer* tokenizer, int cmock_num_calls);
 void getToken_StubWithCallback(CMOCK_getToken_CALLBACK Callback);
+#define isNumber_IgnoreAndReturn(cmock_retval) isNumber_CMockIgnoreAndReturn(__LINE__, cmock_retval)
+void isNumber_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return);
+#define isNumber_ExpectAndReturn(tokens, cmock_retval) isNumber_CMockExpectAndReturn(__LINE__, tokens, cmock_retval)
+void isNumber_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, Token* tokens, int cmock_to_return);
+typedef int (* CMOCK_isNumber_CALLBACK)(Token* tokens, int cmock_num_calls);
+void isNumber_StubWithCallback(CMOCK_isNumber_CALLBACK Callback);
+#define isOperator_IgnoreAndReturn(cmock_retval) isOperator_CMockIgnoreAndReturn(__LINE__, cmock_retval)
+void isOperator_CMockIgnoreAndReturn(UNITY_LINE_TYPE cmock_line, int cmock_to_return);
+#define isOperator_ExpectAndReturn(tokens, cmock_retval) isOperator_CMockExpectAndReturn(__LINE__, tokens, cmock_retval)
+void isOperator_CMockExpectAndReturn(UNITY_LINE_TYPE cmock_line, Token* tokens, int cmock_to_return);
+typedef int (* CMOCK_isOperator_CALLBACK)(Token* tokens, int cmock_num_calls);
+void isOperator_StubWithCallback(CMOCK_isOperator_CALLBACK Callback);
 
 #endif

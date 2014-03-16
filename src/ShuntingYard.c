@@ -4,6 +4,8 @@
 #include "Stack.h"
 #include "initializeToken.h"
 #include "getToken.h"
+#include "tryEvaluatethenPush.h"
+#include "operatorEvaluate.h"
 
 Stack numStack;
 Stack opeStack;
@@ -33,25 +35,26 @@ int shuntingYard(char *expression){
 	
 	while((token = getToken(tokenizer))!=NULL){
 		
-		if(token == NUMBER){
-		stackPush(token,&numStack);
+		if(isNumber(token)){
+			stackPush(token,&numStack);
 		}
-		else 
+		
+		else if(isOperator(token)) 
 		{
+			tryEvaluatethenPush(token,&numStack,&opeStack);
 			stackPush(token,&opeStack);
 		}
 		counter ++;
 	}
+	 
+	operatorEvaluate(&numStack,&opeStack);
 	
-	for(i=0;i<counter;i++){
-		if(token == NUMBER){
-			token = stackPop(&numStack);
-		}
-		else
-		{
-			token = stackPop(&opeStack);
+	while((token = getToken(tokenizer))!=NULL){
+		if(isNumber(token)){
+			stackPush(token,&numStack);
 		}
 	}
+	
 	return counter;
 	
 }
