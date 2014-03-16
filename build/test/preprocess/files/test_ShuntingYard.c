@@ -257,8 +257,118 @@ void test_evaluate_2_PLUS_3_MULTIPLY_4(void){
 
 void test_evaluate_2_MULTIPLY_3_PLUS_4(void){
 
+ int check;
 
 
 
+ Tokenizer tokenizer = {.rawString = "2*3+4", .startIndex = 0, .length = 5};
+
+
+
+ Number number2 = {.type= NUMBER, .value=2};
+
+ Token *token1 = (Token*)&number2;
+
+
+
+ Operator multiply = {.type= OPERATOR, .id = MULTIPLY};
+
+ Token *token2 = (Token*)&multiply;
+
+
+
+ Number number3 = {.type= NUMBER, .value=3};
+
+ Token *token3 = (Token*)&number3;
+
+
+
+ Operator plus = {.type= OPERATOR, .id = ADD};
+
+ Token *token4 = (Token*)&plus;
+
+
+
+ Number number4 = {.type= NUMBER, .value=4};
+
+ Token *token5 = (Token*)&number4;
+
+
+
+ Number answer = {.type=NUMBER, .value=10};
+
+ Token *ansToken = (Token*)&answer;
+
+
+
+
+
+ initTokenizer_CMockExpectAndReturn(157, "2*3+4", &tokenizer);
+
+
+
+ getToken_CMockExpectAndReturn(159, &tokenizer, token1);
+
+ isNumber_CMockExpectAndReturn(160, token1, 1);
+
+ stackPush_CMockExpect(161, token1, &numStack);
+
+
+
+ getToken_CMockExpectAndReturn(163, &tokenizer, token2);
+
+ isNumber_CMockExpectAndReturn(164, token2, 0);
+
+ isOperator_CMockExpectAndReturn(165, token2, 1);
+
+ tryEvaluatethenPush_CMockExpect(166, token2, &numStack, &opeStack);
+
+ stackPush_CMockExpect(167, token2, &opeStack);
+
+
+
+ getToken_CMockExpectAndReturn(169, &tokenizer, token3);
+
+ isNumber_CMockExpectAndReturn(170, token3, 1);
+
+ stackPush_CMockExpect(171, token3, &numStack);
+
+
+
+ getToken_CMockExpectAndReturn(173, &tokenizer, token4);
+
+ isNumber_CMockExpectAndReturn(174, token4, 0);
+
+ isOperator_CMockExpectAndReturn(175, token4, 1);
+
+ tryEvaluatethenPush_CMockExpect(176, token4, &numStack, &opeStack);
+
+ stackPush_CMockExpect(177, token4, &opeStack);
+
+
+
+ getToken_CMockExpectAndReturn(179, &tokenizer, token5);
+
+ isNumber_CMockExpectAndReturn(180, token5, 1);
+
+ stackPush_CMockExpect(181, token5, &numStack);
+
+ getToken_CMockExpectAndReturn(182, &tokenizer, ((void *)0));
+
+
+
+ operatorEvaluate_CMockExpect(184, &numStack, &opeStack);
+
+ getToken_CMockExpectAndReturn(185, &tokenizer, ansToken);
+
+ isNumber_CMockExpectAndReturn(186, ansToken, 1);
+
+ stackPush_CMockExpect(187, ansToken, &numStack);
+
+ getToken_CMockExpectAndReturn(188, &tokenizer, ((void *)0));
+
+
+
+ shuntingYard("2*3+4");
 
 }
