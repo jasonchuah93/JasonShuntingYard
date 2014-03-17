@@ -21,11 +21,14 @@
 - :test: test_evaluate_2_PLUS_3_MULTIPLY_4_PLUS_5_MULTIPLY_6
   :line: 197
   :message: ''
+- :test: test_evaluate_2_MULTIPLY_3_PLUS_4_MULTIPLY_5_PLUS_6
+  :line: 290
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 6
-  :passed: 6
+  :total: 7
+  :passed: 7
   :failed: 0
   :ignored: 0
 :stdout: []
