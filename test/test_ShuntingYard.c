@@ -380,7 +380,7 @@ void test_evaluate_2_MULTIPLY_3_PLUS_4_MULTIPLY_5_PLUS_6(void){
 
 }
 
-void test_2_OR_3_PLUS_4_MULTIPLY_5(void){
+void test_2_OR_3_PLUS_4_MULTIPLY_5_MINUS_6_DIVIDE_10(void){
 	Tokenizer tokenizer = {.rawString = "2|3+4*5-6/10", .startIndex = 0, .length = 11};
 	
 	Number number2 = {.type= NUMBER, .value=2};
@@ -466,7 +466,6 @@ void test_2_OR_3_PLUS_4_MULTIPLY_5(void){
 	isNumber_ExpectAndReturn(token9,1);
 	stackPush_Expect(token9,&numStack);
 	
-	
 	getToken_ExpectAndReturn(&tokenizer,token10);
 	isNumber_ExpectAndReturn(token10,0);
 	isOperator_ExpectAndReturn(token10,1);
@@ -485,5 +484,83 @@ void test_2_OR_3_PLUS_4_MULTIPLY_5(void){
 	getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("2|3+4*5-6/10");
+	
+}
+
+void test_LEFT_PARENTHESIS_2_PLUS_3_LEFTPARENTHESIS_MULTIPLY_4(void){
+	Tokenizer tokenizer = {.rawString = "(2+3)*4", .startIndex = 0, .length = 7 };
+	
+	Operator leftBracket = {.type= OPERATOR, .id = LEFT_PARENTHESIS};
+	Token *token1 = (Token*)&leftBracket;
+	
+	Number number2 = {.type= NUMBER, .value=2};
+	Token *token2 = (Token*)&number2;
+	
+	Operator plus = {.type= OPERATOR, .id = ADD};
+	Token *token3 = (Token*)&plus;
+	
+	Number number3 = {.type= NUMBER, .value=3};
+	Token *token4 = (Token*)&number3;
+	
+	Operator rightBracket = {.type= OPERATOR, .id = RIGHT_PARENTHESIS};
+	Token *token5 = (Token*)&rightBracket;
+	
+	Operator multiply = {.type= OPERATOR, .id = MULTIPLY};
+	Token *token6 = (Token*)&multiply;
+	
+	Number number4 = {.type= NUMBER, .value=4};
+	Token *token7 = (Token*)&number4;
+	
+	Number answer = {.type=NUMBER, .value=20};
+	Token *ansToken = (Token*)&answer;
+	
+	//Evaluate the expression
+	initTokenizer_ExpectAndReturn("(2+3)*4",&tokenizer);
+	
+	getToken_ExpectAndReturn(&tokenizer,token1);
+	isNumber_ExpectAndReturn(token1,0);
+	isOperator_ExpectAndReturn(token1,1);
+	tryEvaluatethenPush_Expect(token1,&numStack,&opeStack);
+	stackPush_Expect(token1,&opeStack);
+	
+	getToken_ExpectAndReturn(&tokenizer,token2);
+	isNumber_ExpectAndReturn(token2,1);
+	stackPush_Expect(token2,&numStack);
+	/*
+	getToken_ExpectAndReturn(&tokenizer,token3);
+	isNumber_ExpectAndReturn(token3,0);
+	isOperator_ExpectAndReturn(token3,1);
+	tryEvaluatethenPush_Expect(token3,&numStack,&opeStack);
+	stackPush_Expect(token3,&opeStack);
+	
+	getToken_ExpectAndReturn(&tokenizer,token4);
+	isNumber_ExpectAndReturn(token4,1);
+	stackPush_Expect(token4,&numStack);
+	
+	getToken_ExpectAndReturn(&tokenizer,token5);
+	isNumber_ExpectAndReturn(token5,0);
+	isOperator_ExpectAndReturn(token5,1);
+	tryEvaluatethenPush_Expect(token5,&numStack,&opeStack);
+	stackPush_Expect(token5,&opeStack);
+	
+	getToken_ExpectAndReturn(&tokenizer,token6);
+	isNumber_ExpectAndReturn(token6,0);
+	isOperator_ExpectAndReturn(token6,1);
+	tryEvaluatethenPush_Expect(token6,&numStack,&opeStack);
+	stackPush_Expect(token6,&opeStack);
+	
+	getToken_ExpectAndReturn(&tokenizer,token7);
+	isNumber_ExpectAndReturn(token7,1);
+	stackPush_Expect(token7,&numStack);
+	getToken_ExpectAndReturn(&tokenizer,NULL);
+	
+	operatorEvaluate_Expect(&numStack,&opeStack);
+	getToken_ExpectAndReturn(&tokenizer,ansToken);
+	isNumber_ExpectAndReturn(ansToken,1);
+	stackPush_Expect(ansToken,&numStack);
+	getToken_ExpectAndReturn(&tokenizer,NULL);
+	*/
+	
+	shuntingYard1("(2+3)*4");
 	
 }

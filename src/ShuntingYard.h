@@ -43,6 +43,7 @@ typedef struct {
 }Identifier;
 
 int shuntingYard(char *expression);
+int shuntingYard1(char *expression);
 
 
 #endif // ShuntingYard_H
