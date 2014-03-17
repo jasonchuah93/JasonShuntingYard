@@ -43,6 +43,8 @@ extern void test_shunting_yard_should_return_0_if_the_expression_is_null(void);
 extern void test_evaluate_2_PLUS_3(void);
 extern void test_evaluate_2_PLUS_3_MULTIPLY_4(void);
 extern void test_evaluate_2_MULTIPLY_3_PLUS_4(void);
+extern void test_evaluate_LEFT_PARENTHESIS_2_PLUS_3_RIGHT_PARENTHESIS_MULTIPLY_4(void);
+extern void test_evaluate_2_PLUS_3_MULTIPLY_4_PLUS_5_MULTIPLY_6(void);
 
 
 //=======Mock Management=====
@@ -94,6 +96,8 @@ int main(void)
   RUN_TEST(test_evaluate_2_PLUS_3, 29);
   RUN_TEST(test_evaluate_2_PLUS_3_MULTIPLY_4, 73);
   RUN_TEST(test_evaluate_2_MULTIPLY_3_PLUS_4, 133);
+  RUN_TEST(test_evaluate_LEFT_PARENTHESIS_2_PLUS_3_RIGHT_PARENTHESIS_MULTIPLY_4, 193);
+  RUN_TEST(test_evaluate_2_PLUS_3_MULTIPLY_4_PLUS_5_MULTIPLY_6, 197);
 
   return (UnityEnd());
 }

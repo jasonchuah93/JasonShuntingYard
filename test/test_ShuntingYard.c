@@ -189,3 +189,50 @@ void test_evaluate_2_MULTIPLY_3_PLUS_4(void){
 	
 	shuntingYard("2*3+4");
 }
+
+void test_evaluate_LEFT_PARENTHESIS_2_PLUS_3_RIGHT_PARENTHESIS_MULTIPLY_4(void){
+	
+}
+
+void test_evaluate_2_PLUS_3_MULTIPLY_4_PLUS_5_MULTIPLY_6(void){
+	int check;
+	//Initialize tokenizer,token and stack
+	Tokenizer tokenizer = {.rawString = "2+3*4+5*6", .startIndex = 0, .length = 9};
+	
+	Number number2 = {.type= NUMBER, .value=2};
+	Token *token1 = (Token*)&number2;
+	
+	Operator plus = {.type= OPERATOR, .id = ADD};
+	Token *token2 = (Token*)&plus;
+	
+	Number number3 = {.type= NUMBER, .value=3};
+	Token *token3 = (Token*)&number3;
+	
+	Operator multiply = {.type= OPERATOR, .id = MULTIPLY};
+	Token *token4 = (Token*)&multiply;
+	
+	Number number4 = {.type= NUMBER, .value=4};
+	Token *token5 = (Token*)&number4;
+	
+	Operator plus1 = {.type= OPERATOR, .id = ADD};
+	Token *token6 = (Token*)&plus;
+	
+	Number number5 = {.type= NUMBER, .value=5};
+	Token *token7 = (Token*)&number5;
+	
+	Operator multiply1 = {.type= OPERATOR, .id = MULTIPLY};
+	Token *token8 = (Token*)&multiply;
+	
+	Number number6 = {.type= NUMBER, .value=6};
+	Token *token9 = (Token*)&number6;
+	
+	Number answer = {.type=NUMBER, .value=44};
+	Token *ansToken = (Token*)&answer;
+	
+	//Evaluate the expression
+	initTokenizer_ExpectAndReturn("2+3*4+5*6",&tokenizer);
+	
+	shuntingYard("2+3*4+5*6");
+	
+
+}

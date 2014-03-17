@@ -32,8 +32,8 @@ int shuntingYard(char *expression){
 		return 0;
 	}
 	
-	
 	while((token = getToken(tokenizer))!=NULL){
+		
 		
 		if(isNumber(token)){
 			stackPush(token,&numStack);
@@ -56,5 +56,6 @@ int shuntingYard(char *expression){
 	}
 	
 	return counter;
-	
 }
+
+
