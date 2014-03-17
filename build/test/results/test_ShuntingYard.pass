@@ -24,11 +24,14 @@
 - :test: test_evaluate_2_MULTIPLY_3_PLUS_4_MULTIPLY_5_PLUS_6
   :line: 290
   :message: ''
+- :test: test_2_OR_3_PLUS_4_MULTIPLY_5
+  :line: 383
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 7
-  :passed: 7
+  :total: 8
+  :passed: 8
   :failed: 0
   :ignored: 0
 :stdout: []
