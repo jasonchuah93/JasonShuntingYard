@@ -232,6 +232,58 @@ void test_evaluate_2_PLUS_3_MULTIPLY_4_PLUS_5_MULTIPLY_6(void){
 	//Evaluate the expression
 	initTokenizer_ExpectAndReturn("2+3*4+5*6",&tokenizer);
 	
+	getToken_ExpectAndReturn(&tokenizer,token1);
+	isNumber_ExpectAndReturn(token1,1);
+	stackPush_Expect(token1,&numStack);
+	
+	getToken_ExpectAndReturn(&tokenizer,token2);
+	isNumber_ExpectAndReturn(token2,0);
+	isOperator_ExpectAndReturn(token2,1);
+	tryEvaluatethenPush_Expect(token2,&numStack,&opeStack);
+	stackPush_Expect(token2,&opeStack);
+	
+	getToken_ExpectAndReturn(&tokenizer,token3);
+	isNumber_ExpectAndReturn(token3,1);
+	stackPush_Expect(token3,&numStack);
+	
+	getToken_ExpectAndReturn(&tokenizer,token4);
+	isNumber_ExpectAndReturn(token4,0);
+	isOperator_ExpectAndReturn(token4,1);
+	tryEvaluatethenPush_Expect(token4,&numStack,&opeStack);
+	stackPush_Expect(token4,&opeStack);
+	
+	getToken_ExpectAndReturn(&tokenizer,token5);
+	isNumber_ExpectAndReturn(token5,1);
+	stackPush_Expect(token5,&numStack);
+	
+	getToken_ExpectAndReturn(&tokenizer,token6);
+	isNumber_ExpectAndReturn(token6,0);
+	isOperator_ExpectAndReturn(token6,1);
+	tryEvaluatethenPush_Expect(token6,&numStack,&opeStack);
+	stackPush_Expect(token6,&opeStack);
+	
+	getToken_ExpectAndReturn(&tokenizer,token7);
+	isNumber_ExpectAndReturn(token7,1);
+	stackPush_Expect(token7,&numStack);
+	
+	getToken_ExpectAndReturn(&tokenizer,token8);
+	isNumber_ExpectAndReturn(token8,0);
+	isOperator_ExpectAndReturn(token8,1);
+	tryEvaluatethenPush_Expect(token8,&numStack,&opeStack);
+	stackPush_Expect(token8,&opeStack);
+	
+	getToken_ExpectAndReturn(&tokenizer,token9);
+	isNumber_ExpectAndReturn(token9,1);
+	stackPush_Expect(token9,&numStack);
+	getToken_ExpectAndReturn(&tokenizer,NULL);
+	
+	operatorEvaluate_Expect(&numStack,&opeStack);
+	getToken_ExpectAndReturn(&tokenizer,ansToken);
+	isNumber_ExpectAndReturn(ansToken,1);
+	stackPush_Expect(ansToken,&numStack);
+	getToken_ExpectAndReturn(&tokenizer,NULL);
+
+	
 	shuntingYard("2+3*4+5*6");
 	
 

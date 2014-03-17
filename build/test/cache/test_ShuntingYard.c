@@ -459,6 +459,110 @@ void test_evaluate_2_PLUS_3_MULTIPLY_4_PLUS_5_MULTIPLY_6(void){
 
 
 
+ getToken_CMockExpectAndReturn(235, &tokenizer, token1);
+
+ isNumber_CMockExpectAndReturn(236, token1, 1);
+
+ stackPush_CMockExpect(237, token1, &numStack);
+
+
+
+ getToken_CMockExpectAndReturn(239, &tokenizer, token2);
+
+ isNumber_CMockExpectAndReturn(240, token2, 0);
+
+ isOperator_CMockExpectAndReturn(241, token2, 1);
+
+ tryEvaluatethenPush_CMockExpect(242, token2, &numStack, &opeStack);
+
+ stackPush_CMockExpect(243, token2, &opeStack);
+
+
+
+ getToken_CMockExpectAndReturn(245, &tokenizer, token3);
+
+ isNumber_CMockExpectAndReturn(246, token3, 1);
+
+ stackPush_CMockExpect(247, token3, &numStack);
+
+
+
+ getToken_CMockExpectAndReturn(249, &tokenizer, token4);
+
+ isNumber_CMockExpectAndReturn(250, token4, 0);
+
+ isOperator_CMockExpectAndReturn(251, token4, 1);
+
+ tryEvaluatethenPush_CMockExpect(252, token4, &numStack, &opeStack);
+
+ stackPush_CMockExpect(253, token4, &opeStack);
+
+
+
+ getToken_CMockExpectAndReturn(255, &tokenizer, token5);
+
+ isNumber_CMockExpectAndReturn(256, token5, 1);
+
+ stackPush_CMockExpect(257, token5, &numStack);
+
+
+
+ getToken_CMockExpectAndReturn(259, &tokenizer, token6);
+
+ isNumber_CMockExpectAndReturn(260, token6, 0);
+
+ isOperator_CMockExpectAndReturn(261, token6, 1);
+
+ tryEvaluatethenPush_CMockExpect(262, token6, &numStack, &opeStack);
+
+ stackPush_CMockExpect(263, token6, &opeStack);
+
+
+
+ getToken_CMockExpectAndReturn(265, &tokenizer, token7);
+
+ isNumber_CMockExpectAndReturn(266, token7, 1);
+
+ stackPush_CMockExpect(267, token7, &numStack);
+
+
+
+ getToken_CMockExpectAndReturn(269, &tokenizer, token8);
+
+ isNumber_CMockExpectAndReturn(270, token8, 0);
+
+ isOperator_CMockExpectAndReturn(271, token8, 1);
+
+ tryEvaluatethenPush_CMockExpect(272, token8, &numStack, &opeStack);
+
+ stackPush_CMockExpect(273, token8, &opeStack);
+
+
+
+ getToken_CMockExpectAndReturn(275, &tokenizer, token9);
+
+ isNumber_CMockExpectAndReturn(276, token9, 1);
+
+ stackPush_CMockExpect(277, token9, &numStack);
+
+ getToken_CMockExpectAndReturn(278, &tokenizer, ((void *)0));
+
+
+
+ operatorEvaluate_CMockExpect(280, &numStack, &opeStack);
+
+ getToken_CMockExpectAndReturn(281, &tokenizer, ansToken);
+
+ isNumber_CMockExpectAndReturn(282, ansToken, 1);
+
+ stackPush_CMockExpect(283, ansToken, &numStack);
+
+ getToken_CMockExpectAndReturn(284, &tokenizer, ((void *)0));
+
+
+
+
+
  shuntingYard("2+3*4+5*6");
 
 
