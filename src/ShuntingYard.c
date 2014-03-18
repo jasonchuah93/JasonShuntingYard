@@ -11,9 +11,9 @@ Stack numStack;
 Stack opeStack;
 
 /*
-	This function is to evaluate expression "2+3"
+	This function is to evaluate expression 
 	
-	input  : expression contains "2+3"
+	input  : expression 
 	output : none
 	return : token 
 	Mocking function : 1)initTokenizer(); initialize expression into tokenizer
@@ -57,3 +57,21 @@ int shuntingYard(char *expression){
 	return counter;
 }
 
+int operatorEvaluate1(Stack *numStack , Stack *opeStack){
+	Tokenizer *tokenizer;
+	Token *token;
+	int i;
+	int counter =0;
+	
+	for(i=0 ; i<counter ; i++){
+		if(isNumber(token)){
+			token = stackPop(numStack);
+		}
+		else if(isOperator(token)){
+			token = stackPop(opeStack);
+		}
+		counter ++;
+	}
+	
+	return counter;
+}	
