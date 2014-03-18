@@ -33,11 +33,14 @@
 - :test: test_NEGATIVE_2_SHOULD_RETURN_NEGATIVE_2
   :line: 637
   :message: ''
+- :test: test_NEGATIVE_2_PLUS_NEGATIVE_3
+  :line: 675
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 10
-  :passed: 10
+  :total: 11
+  :passed: 11
   :failed: 0
   :ignored: 0
 :stdout: []
