@@ -1259,6 +1259,80 @@ void test_2_MULTIPLY_LEFT_PARENTHESIS_THREE_PLUS_FOUR_RIGHT_PARENTHESIS(void){
 
  shuntingYard("2*(3+4)");
 
+}
 
+
+
+void test_NEGATIVE_2_SHOULD_RETURN_NEGATIVE_2(void){
+
+ Tokenizer tokenizer = {.rawString = "-2", .startIndex = 0, .length = 2 };
+
+
+
+ Operator subtract = {.type= OPERATOR, .id = SUBTRACT};
+
+ Token *token1 = (Token*)&subtract;
+
+
+
+ Number number2 = {.type= NUMBER, .value=2};
+
+ Token *token2 = (Token*)&number2;
+
+
+
+ Number answer = {.type=NUMBER, .value=-2};
+
+ Token *ansToken = (Token*)&answer;
+
+
+
+
+
+ initTokenizer_CMockExpectAndReturn(650, "-2", &tokenizer);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(653, &tokenizer, token1);
+
+ isNumber_CMockExpectAndReturn(654, token1, 0);
+
+ isOperator_CMockExpectAndReturn(655, token1, 1);
+
+ tryEvaluatethenPush_CMockExpect(656, token1, &numStack, &opeStack);
+
+ stackPush_CMockExpect(657, token1, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(660, &tokenizer, token2);
+
+ isNumber_CMockExpectAndReturn(661, token2, 1);
+
+ stackPush_CMockExpect(662, token2, &numStack);
+
+ getToken_CMockExpectAndReturn(663, &tokenizer, ((void *)0));
+
+
+
+
+
+ operatorEvaluate_CMockExpect(666, &numStack, &opeStack);
+
+ getToken_CMockExpectAndReturn(667, &tokenizer, ansToken);
+
+ isNumber_CMockExpectAndReturn(668, ansToken, 1);
+
+ stackPush_CMockExpect(669, ansToken, &numStack);
+
+ getToken_CMockExpectAndReturn(670, &tokenizer, ((void *)0));
+
+
+
+ shuntingYard("-2");
 
 }

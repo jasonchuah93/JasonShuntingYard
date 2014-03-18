@@ -632,5 +632,43 @@ void test_2_MULTIPLY_LEFT_PARENTHESIS_THREE_PLUS_FOUR_RIGHT_PARENTHESIS(void){
 	getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("2*(3+4)");
-	
 }
+
+void test_NEGATIVE_2_SHOULD_RETURN_NEGATIVE_2(void){
+	Tokenizer tokenizer = {.rawString = "-2", .startIndex = 0, .length = 2 };
+	
+	Operator subtract = {.type= OPERATOR, .id = SUBTRACT};
+	Token *token1 = (Token*)&subtract;
+	
+	Number number2 = {.type= NUMBER, .value=2};
+	Token *token2 = (Token*)&number2;
+	
+	Number answer = {.type=NUMBER, .value=-2};
+	Token *ansToken = (Token*)&answer;
+	
+	//Evaluate the expression
+	initTokenizer_ExpectAndReturn("-2",&tokenizer);
+	
+	//SUBTRACT
+	getToken_ExpectAndReturn(&tokenizer,token1);
+	isNumber_ExpectAndReturn(token1,0);
+	isOperator_ExpectAndReturn(token1,1);
+	tryEvaluatethenPush_Expect(token1,&numStack,&opeStack);
+	stackPush_Expect(token1,&opeStack);
+	
+	//2
+	getToken_ExpectAndReturn(&tokenizer,token2);
+	isNumber_ExpectAndReturn(token2,1);
+	stackPush_Expect(token2,&numStack);
+	getToken_ExpectAndReturn(&tokenizer,NULL);
+	
+	//ANSWER
+	operatorEvaluate_Expect(&numStack,&opeStack);
+	getToken_ExpectAndReturn(&tokenizer,ansToken);
+	isNumber_ExpectAndReturn(ansToken,1);
+	stackPush_Expect(ansToken,&numStack);
+	getToken_ExpectAndReturn(&tokenizer,NULL);
+	
+	shuntingYard("-2");
+}
+
