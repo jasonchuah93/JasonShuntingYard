@@ -555,7 +555,82 @@ void test_LEFT_PARENTHESIS_2_PLUS_3_RIGHT_PARENTHESIS_MULTIPLY_4(void){
 	stackPush_Expect(ansToken,&numStack);
 	getToken_ExpectAndReturn(&tokenizer,NULL);
 	
-	
 	shuntingYard("(2+3)*4");
+}
+
+void test_2_MULTIPLY_LEFT_PARENTHESIS_THREE_PLUS_FOUR_RIGHT_PARENTHESIS(void){
+	Tokenizer tokenizer = {.rawString = "2*(3+4)", .startIndex = 0, .length = 7 };
+	
+	Number number2 = {.type= NUMBER, .value=2};
+	Token *token1 = (Token*)&number2;
+	
+	Operator multiply = {.type= OPERATOR, .id = MULTIPLY};
+	Token *token2 = (Token*)&multiply;
+	
+	Operator leftBracket = {.type= OPERATOR, .id = LEFT_PARENTHESIS};
+	Token *token3 = (Token*)&leftBracket;
+	
+	Number number3 = {.type= NUMBER, .value=3};
+	Token *token4 = (Token*)&number3;
+	
+	Operator plus = {.type= OPERATOR, .id = ADD};
+	Token *token5 = (Token*)&plus;
+	
+	Number number4 = {.type= NUMBER, .value=4};
+	Token *token6 = (Token*)&number4;
+	
+	Operator rightBracket = {.type= OPERATOR, .id = RIGHT_PARENTHESIS};
+	Token *token7 = (Token*)&rightBracket;
+	
+	Number answer = {.type=NUMBER, .value=14};
+	Token *ansToken = (Token*)&answer;
+	
+	//Evaluate the expression
+	initTokenizer_ExpectAndReturn("2*(3+4)",&tokenizer);
+	//2
+	getToken_ExpectAndReturn(&tokenizer,token1);
+	isNumber_ExpectAndReturn(token1,1);
+	stackPush_Expect(token1,&numStack);
+	//MULTIPLY
+	getToken_ExpectAndReturn(&tokenizer,token2);
+	isNumber_ExpectAndReturn(token2,0);
+	isOperator_ExpectAndReturn(token2,1);
+	tryEvaluatethenPush_Expect(token2,&numStack,&opeStack);
+	stackPush_Expect(token2,&opeStack);
+	//LEFT_PARENTHESIS
+	getToken_ExpectAndReturn(&tokenizer,token3);
+	isNumber_ExpectAndReturn(token3,0);
+	isOperator_ExpectAndReturn(token3,1);
+	tryEvaluatethenPush_Expect(token3,&numStack,&opeStack);
+	stackPush_Expect(token3,&opeStack);
+	//3
+	getToken_ExpectAndReturn(&tokenizer,token4);
+	isNumber_ExpectAndReturn(token4,1);
+	stackPush_Expect(token4,&numStack);
+	//PLUS
+	getToken_ExpectAndReturn(&tokenizer,token5);
+	isNumber_ExpectAndReturn(token5,0);
+	isOperator_ExpectAndReturn(token5,1);
+	tryEvaluatethenPush_Expect(token5,&numStack,&opeStack);
+	stackPush_Expect(token5,&opeStack);
+	//FOUR
+	getToken_ExpectAndReturn(&tokenizer,token6);
+	isNumber_ExpectAndReturn(token6,1);
+	stackPush_Expect(token6,&numStack);
+	//RIGHT PARENTHESIS
+	getToken_ExpectAndReturn(&tokenizer,token7);
+	isNumber_ExpectAndReturn(token7,0);
+	isOperator_ExpectAndReturn(token7,1);
+	tryEvaluatethenPush_Expect(token7,&numStack,&opeStack);
+	stackPush_Expect(token7,&opeStack);
+	getToken_ExpectAndReturn(&tokenizer,NULL);
+	//ANSWER
+	operatorEvaluate_Expect(&numStack,&opeStack);
+	getToken_ExpectAndReturn(&tokenizer,ansToken);
+	isNumber_ExpectAndReturn(ansToken,1);
+	stackPush_Expect(ansToken,&numStack);
+	getToken_ExpectAndReturn(&tokenizer,NULL);
+	
+	shuntingYard("2*(3+4)");
 	
 }
