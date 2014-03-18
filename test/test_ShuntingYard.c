@@ -1146,6 +1146,115 @@ void test_NEGATIVE_LEFT_PARENTHESIS_POSITIVE_LEFT_PARENTHESIS_NEGATIVE_LEFT_PARE
 	Number answer = {.type=NUMBER, .value=1};
 	Token *ansToken = (Token*)&answer;
 	
+	//Evaluate the expression
+	initTokenizer_ExpectAndReturn("-(+(-(-1)*3)-4)",&tokenizer);
 	
+	//NEGATIVE
+	getToken_ExpectAndReturn(&tokenizer,token1);
+	isNumber_ExpectAndReturn(token1,0);
+	isOperator_ExpectAndReturn(token1,1);
+	tryEvaluatethenPush_Expect(token1,&numStack,&opeStack);
+	stackPush_Expect(token1,&opeStack);
 	
+	//LEFT BRACKET
+	getToken_ExpectAndReturn(&tokenizer,token2);
+	isNumber_ExpectAndReturn(token2,0);
+	isOperator_ExpectAndReturn(token2,1);
+	tryEvaluatethenPush_Expect(token2,&numStack,&opeStack);
+	stackPush_Expect(token2,&opeStack);
+	
+	//POSITIVE
+	getToken_ExpectAndReturn(&tokenizer,token3);
+	isNumber_ExpectAndReturn(token3,0);
+	isOperator_ExpectAndReturn(token3,1);
+	tryEvaluatethenPush_Expect(token3,&numStack,&opeStack);
+	stackPush_Expect(token3,&opeStack);
+	
+	//LEFT BRACKET
+	getToken_ExpectAndReturn(&tokenizer,token4);
+	isNumber_ExpectAndReturn(token4,0);
+	isOperator_ExpectAndReturn(token4,1);
+	tryEvaluatethenPush_Expect(token4,&numStack,&opeStack);
+	stackPush_Expect(token4,&opeStack);
+	
+	//NEGATIVE
+	getToken_ExpectAndReturn(&tokenizer,token5);
+	isNumber_ExpectAndReturn(token5,0);
+	isOperator_ExpectAndReturn(token5,1);
+	tryEvaluatethenPush_Expect(token5,&numStack,&opeStack);
+	stackPush_Expect(token5,&opeStack);
+	
+	//LEFT BRACKET
+	getToken_ExpectAndReturn(&tokenizer,token6);
+	isNumber_ExpectAndReturn(token6,0);
+	isOperator_ExpectAndReturn(token6,1);
+	tryEvaluatethenPush_Expect(token6,&numStack,&opeStack);
+	stackPush_Expect(token6,&opeStack);
+	
+	//NEGATIVE
+	getToken_ExpectAndReturn(&tokenizer,token7);
+	isNumber_ExpectAndReturn(token7,0);
+	isOperator_ExpectAndReturn(token7,1);
+	tryEvaluatethenPush_Expect(token7,&numStack,&opeStack);
+	stackPush_Expect(token7,&opeStack);
+
+	//1
+	getToken_ExpectAndReturn(&tokenizer,token8);
+	isNumber_ExpectAndReturn(token8,1);
+	stackPush_Expect(token8,&numStack);
+	
+	//RIGHT BRACKET
+	getToken_ExpectAndReturn(&tokenizer,token9);
+	isNumber_ExpectAndReturn(token9,0);
+	isOperator_ExpectAndReturn(token9,1);
+	tryEvaluatethenPush_Expect(token9,&numStack,&opeStack);
+	stackPush_Expect(token9,&opeStack);
+	
+	//MULTIPLY
+	getToken_ExpectAndReturn(&tokenizer,token10);
+	isNumber_ExpectAndReturn(token10,0);
+	isOperator_ExpectAndReturn(token10,1);
+	tryEvaluatethenPush_Expect(token10,&numStack,&opeStack);
+	stackPush_Expect(token10,&opeStack);
+	
+	//3
+	getToken_ExpectAndReturn(&tokenizer,token11);
+	isNumber_ExpectAndReturn(token11,1);
+	stackPush_Expect(token11,&numStack);
+	
+	//RIGHT BRACKET
+	getToken_ExpectAndReturn(&tokenizer,token12);
+	isNumber_ExpectAndReturn(token12,0);
+	isOperator_ExpectAndReturn(token12,1);
+	tryEvaluatethenPush_Expect(token12,&numStack,&opeStack);
+	stackPush_Expect(token12,&opeStack);
+	
+	//SUBTRACT
+	getToken_ExpectAndReturn(&tokenizer,token13);
+	isNumber_ExpectAndReturn(token13,0);
+	isOperator_ExpectAndReturn(token13,1);
+	tryEvaluatethenPush_Expect(token13,&numStack,&opeStack);
+	stackPush_Expect(token13,&opeStack);
+	
+	//4
+	getToken_ExpectAndReturn(&tokenizer,token14);
+	isNumber_ExpectAndReturn(token14,1);
+	stackPush_Expect(token14,&numStack);
+	
+	//RIGHT BRACKET
+	getToken_ExpectAndReturn(&tokenizer,token15);
+	isNumber_ExpectAndReturn(token15,0);
+	isOperator_ExpectAndReturn(token15,1);
+	tryEvaluatethenPush_Expect(token15,&numStack,&opeStack);
+	stackPush_Expect(token15,&opeStack);
+	getToken_ExpectAndReturn(&tokenizer,NULL);
+	
+	//ANSWER
+	operatorEvaluate_Expect(&numStack,&opeStack);
+	getToken_ExpectAndReturn(&tokenizer,ansToken);
+	isNumber_ExpectAndReturn(ansToken,1);
+	stackPush_Expect(ansToken,&numStack);
+	getToken_ExpectAndReturn(&tokenizer,NULL);
+	
+	shuntingYard("-(+(-(-1)*3)-4)");
 }
