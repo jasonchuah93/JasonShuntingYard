@@ -745,9 +745,9 @@ void test_evaluate_2_MULTIPLY_3_PLUS_4_MULTIPLY_5_PLUS_6(void){
 
 
 
-void test_2_OR_3_PLUS_4_MULTIPLY_5_MINUS_6_DIVIDE_10(void){
+void test_2_OR_3_PLUS_4_MULTIPLY_5_MINUS_6_MINUS_10(void){
 
- Tokenizer tokenizer = {.rawString = "2|3+4*5-6/10", .startIndex = 0, .length = 11};
+ Tokenizer tokenizer = {.rawString = "2|3+4*5-6-10", .startIndex = 0, .length = 11};
 
 
 
@@ -805,9 +805,9 @@ void test_2_OR_3_PLUS_4_MULTIPLY_5_MINUS_6_DIVIDE_10(void){
 
 
 
- Operator divide = {.type= OPERATOR, .id = DIVIDE};
+ Operator subtract1 = {.type= OPERATOR, .id = SUBTRACT};
 
- Token *token10 = (Token*)&subtract;
+ Token *token10 = (Token*)&subtract1;
 
 
 
@@ -817,7 +817,7 @@ void test_2_OR_3_PLUS_4_MULTIPLY_5_MINUS_6_DIVIDE_10(void){
 
 
 
- Number answer = {.type=NUMBER, .value=22.5};
+ Number answer = {.type=NUMBER, .value=7};
 
  Token *ansToken = (Token*)&answer;
 
@@ -825,7 +825,7 @@ void test_2_OR_3_PLUS_4_MULTIPLY_5_MINUS_6_DIVIDE_10(void){
 
 
 
- initTokenizer_CMockExpectAndReturn(418, "2|3+4*5-6/10", &tokenizer);
+ initTokenizer_CMockExpectAndReturn(418, "2|3+4*5-6-10", &tokenizer);
 
 
 
@@ -951,7 +951,7 @@ void test_2_OR_3_PLUS_4_MULTIPLY_5_MINUS_6_DIVIDE_10(void){
 
 
 
- shuntingYard("2|3+4*5-6/10");
+ shuntingYard("2|3+4*5-6-10");
 
 
 
@@ -1624,5 +1624,421 @@ void test_NEGATIVE_NEGATIVE_NEGATIVE_NEGATIVE_NEGATIVE_2(void){
  shuntingYard("-----2");
 
 
+
+}
+
+
+
+void test_LEFT_PARENTHESIS_10_MULTIPLY_100_RIGHT_PARENTHESIS_DIVIDE_BY_LEFT_PARENTHESIS_LEFT_PARENTHESIS_NEGATIVE_5_MULTIPLY_6_RIGHT_PARENTHESIS_SUBTRACT_LEFT_PARENTHESIS_2_MINUS_30_RIGHT_PARENTHESIS_RIGHT_PARENTHESIS(void) {
+
+ Tokenizer tokenizer = {.rawString = "(10*100)/((-5*6)-(2-30))", .startIndex = 0, .length = 24 };
+
+
+
+ Operator leftBracket = {.type= OPERATOR, .id = LEFT_PARENTHESIS};
+
+ Token *token1 = (Token*)&leftBracket;
+
+
+
+ Number number10 = {.type= NUMBER, .value=10};
+
+ Token *token2 = (Token*)&number10;
+
+
+
+ Operator multiply = {.type= OPERATOR, .id = MULTIPLY};
+
+ Token *token3 = (Token*)&multiply;
+
+
+
+ Number number100 = {.type= NUMBER, .value=100};
+
+ Token *token4 = (Token*)&number100;
+
+
+
+ Operator rightBracket = {.type= OPERATOR, .id = RIGHT_PARENTHESIS};
+
+ Token *token5 = (Token*)&rightBracket;
+
+
+
+ Operator divide = {.type= OPERATOR, .id = DIVIDE};
+
+ Token *token6 = (Token*)&divide;
+
+
+
+ Operator leftBracket2 = {.type= OPERATOR, .id = LEFT_PARENTHESIS};
+
+ Token *token7 = (Token*)&leftBracket2;
+
+
+
+ Operator leftBracket3 = {.type= OPERATOR, .id = LEFT_PARENTHESIS};
+
+ Token *token8 = (Token*)&leftBracket3;
+
+
+
+ Operator negative = {.type= OPERATOR, .id = SUBTRACT};
+
+ Token *token9 = (Token*)&negative;
+
+
+
+ Number number5 = {.type= NUMBER, .value=5};
+
+ Token *token10 = (Token*)&number5;
+
+
+
+ Operator multiply1 = {.type= OPERATOR, .id = MULTIPLY};
+
+ Token *token11 = (Token*)&multiply1;
+
+
+
+ Number number6 = {.type= NUMBER, .value=6};
+
+ Token *token12 = (Token*)&number6;
+
+
+
+ Operator rightBracket1 = {.type= OPERATOR, .id = RIGHT_PARENTHESIS};
+
+ Token *token13 = (Token*)&rightBracket1;
+
+
+
+ Operator subtract = {.type= OPERATOR, .id = SUBTRACT};
+
+ Token *token14 = (Token*)&subtract;
+
+
+
+ Operator leftBracket4 = {.type= OPERATOR, .id = LEFT_PARENTHESIS};
+
+ Token *token15 = (Token*)&leftBracket4;
+
+
+
+ Number number2 = {.type= NUMBER, .value=2};
+
+ Token *token16 = (Token*)&number2;
+
+
+
+ Operator subtract2 = {.type= OPERATOR, .id = SUBTRACT};
+
+ Token *token17 = (Token*)&subtract2;
+
+
+
+ Number number30 = {.type= NUMBER, .value=30};
+
+ Token *token18 = (Token*)&number30;
+
+
+
+ Operator rightBracket2 = {.type= OPERATOR, .id = RIGHT_PARENTHESIS};
+
+ Token *token19 = (Token*)&rightBracket2;
+
+
+
+ Operator rightBracket3 = {.type= OPERATOR, .id = RIGHT_PARENTHESIS};
+
+ Token *token20 = (Token*)&rightBracket3;
+
+
+
+ Number answer = {.type=NUMBER, .value=-500};
+
+ Token *ansToken = (Token*)&answer;
+
+
+
+
+
+ initTokenizer_CMockExpectAndReturn(887, "(10*100)/((-5*6)-(2-30))", &tokenizer);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(890, &tokenizer, token1);
+
+ isNumber_CMockExpectAndReturn(891, token1, 0);
+
+ isOperator_CMockExpectAndReturn(892, token1, 1);
+
+ tryEvaluatethenPush_CMockExpect(893, token1, &numStack, &opeStack);
+
+ stackPush_CMockExpect(894, token1, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(897, &tokenizer, token2);
+
+ isNumber_CMockExpectAndReturn(898, token2, 1);
+
+ stackPush_CMockExpect(899, token2, &numStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(902, &tokenizer, token3);
+
+ isNumber_CMockExpectAndReturn(903, token3, 0);
+
+ isOperator_CMockExpectAndReturn(904, token3, 1);
+
+ tryEvaluatethenPush_CMockExpect(905, token3, &numStack, &opeStack);
+
+ stackPush_CMockExpect(906, token3, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(909, &tokenizer, token4);
+
+ isNumber_CMockExpectAndReturn(910, token4, 1);
+
+ stackPush_CMockExpect(911, token4, &numStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(914, &tokenizer, token5);
+
+ isNumber_CMockExpectAndReturn(915, token5, 0);
+
+ isOperator_CMockExpectAndReturn(916, token5, 1);
+
+ tryEvaluatethenPush_CMockExpect(917, token5, &numStack, &opeStack);
+
+ stackPush_CMockExpect(918, token5, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(921, &tokenizer, token6);
+
+ isNumber_CMockExpectAndReturn(922, token6, 0);
+
+ isOperator_CMockExpectAndReturn(923, token6, 1);
+
+ tryEvaluatethenPush_CMockExpect(924, token6, &numStack, &opeStack);
+
+ stackPush_CMockExpect(925, token6, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(928, &tokenizer, token7);
+
+ isNumber_CMockExpectAndReturn(929, token7, 0);
+
+ isOperator_CMockExpectAndReturn(930, token7, 1);
+
+ tryEvaluatethenPush_CMockExpect(931, token7, &numStack, &opeStack);
+
+ stackPush_CMockExpect(932, token7, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(935, &tokenizer, token8);
+
+ isNumber_CMockExpectAndReturn(936, token8, 0);
+
+ isOperator_CMockExpectAndReturn(937, token8, 1);
+
+ tryEvaluatethenPush_CMockExpect(938, token8, &numStack, &opeStack);
+
+ stackPush_CMockExpect(939, token8, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(942, &tokenizer, token9);
+
+ isNumber_CMockExpectAndReturn(943, token9, 0);
+
+ isOperator_CMockExpectAndReturn(944, token9, 1);
+
+ tryEvaluatethenPush_CMockExpect(945, token9, &numStack, &opeStack);
+
+ stackPush_CMockExpect(946, token9, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(949, &tokenizer, token10);
+
+ isNumber_CMockExpectAndReturn(950, token10, 1);
+
+ stackPush_CMockExpect(951, token10, &numStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(954, &tokenizer, token11);
+
+ isNumber_CMockExpectAndReturn(955, token11, 0);
+
+ isOperator_CMockExpectAndReturn(956, token11, 1);
+
+ tryEvaluatethenPush_CMockExpect(957, token11, &numStack, &opeStack);
+
+ stackPush_CMockExpect(958, token11, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(961, &tokenizer, token12);
+
+ isNumber_CMockExpectAndReturn(962, token12, 1);
+
+ stackPush_CMockExpect(963, token12, &numStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(966, &tokenizer, token13);
+
+ isNumber_CMockExpectAndReturn(967, token13, 0);
+
+ isOperator_CMockExpectAndReturn(968, token13, 1);
+
+ tryEvaluatethenPush_CMockExpect(969, token13, &numStack, &opeStack);
+
+ stackPush_CMockExpect(970, token13, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(973, &tokenizer, token14);
+
+ isNumber_CMockExpectAndReturn(974, token14, 0);
+
+ isOperator_CMockExpectAndReturn(975, token14, 1);
+
+ tryEvaluatethenPush_CMockExpect(976, token14, &numStack, &opeStack);
+
+ stackPush_CMockExpect(977, token14, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(980, &tokenizer, token15);
+
+ isNumber_CMockExpectAndReturn(981, token15, 0);
+
+ isOperator_CMockExpectAndReturn(982, token15, 1);
+
+ tryEvaluatethenPush_CMockExpect(983, token15, &numStack, &opeStack);
+
+ stackPush_CMockExpect(984, token15, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(987, &tokenizer, token16);
+
+ isNumber_CMockExpectAndReturn(988, token16, 1);
+
+ stackPush_CMockExpect(989, token16, &numStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(992, &tokenizer, token17);
+
+ isNumber_CMockExpectAndReturn(993, token17, 0);
+
+ isOperator_CMockExpectAndReturn(994, token17, 1);
+
+ tryEvaluatethenPush_CMockExpect(995, token17, &numStack, &opeStack);
+
+ stackPush_CMockExpect(996, token17, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(999, &tokenizer, token18);
+
+ isNumber_CMockExpectAndReturn(1000, token18, 1);
+
+ stackPush_CMockExpect(1001, token18, &numStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(1004, &tokenizer, token19);
+
+ isNumber_CMockExpectAndReturn(1005, token19, 0);
+
+ isOperator_CMockExpectAndReturn(1006, token19, 1);
+
+ tryEvaluatethenPush_CMockExpect(1007, token19, &numStack, &opeStack);
+
+ stackPush_CMockExpect(1008, token19, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(1011, &tokenizer, token20);
+
+ isNumber_CMockExpectAndReturn(1012, token20, 0);
+
+ isOperator_CMockExpectAndReturn(1013, token20, 1);
+
+ tryEvaluatethenPush_CMockExpect(1014, token20, &numStack, &opeStack);
+
+ stackPush_CMockExpect(1015, token20, &opeStack);
+
+ getToken_CMockExpectAndReturn(1016, &tokenizer, ((void *)0));
+
+
+
+
+
+ operatorEvaluate_CMockExpect(1019, &numStack, &opeStack);
+
+ getToken_CMockExpectAndReturn(1020, &tokenizer, ansToken);
+
+ isNumber_CMockExpectAndReturn(1021, ansToken, 1);
+
+ stackPush_CMockExpect(1022, ansToken, &numStack);
+
+ getToken_CMockExpectAndReturn(1023, &tokenizer, ((void *)0));
+
+
+
+ shuntingYard("(10*100)/((-5*6)-(2-30))");
 
 }
