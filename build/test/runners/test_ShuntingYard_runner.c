@@ -43,11 +43,10 @@ extern void test_shunting_yard_should_return_0_if_the_expression_is_null(void);
 extern void test_evaluate_2_PLUS_3(void);
 extern void test_evaluate_2_PLUS_3_MULTIPLY_4(void);
 extern void test_evaluate_2_MULTIPLY_3_PLUS_4(void);
-extern void test_evaluate_LEFT_PARENTHESIS_2_PLUS_3_RIGHT_PARENTHESIS_MULTIPLY_4(void);
 extern void test_evaluate_2_PLUS_3_MULTIPLY_4_PLUS_5_MULTIPLY_6(void);
 extern void test_evaluate_2_MULTIPLY_3_PLUS_4_MULTIPLY_5_PLUS_6(void);
 extern void test_2_OR_3_PLUS_4_MULTIPLY_5_MINUS_6_DIVIDE_10(void);
-extern void test_LEFT_PARENTHESIS_2_PLUS_3_LEFTPARENTHESIS_MULTIPLY_4(void);
+extern void test_LEFT_PARENTHESIS_2_PLUS_3_RIGHT_PARENTHESIS_MULTIPLY_4(void);
 
 
 //=======Mock Management=====
@@ -96,14 +95,13 @@ int main(void)
   Unity.TestFile = "test_ShuntingYard.c";
   UnityBegin();
   RUN_TEST(test_shunting_yard_should_return_0_if_the_expression_is_null, 15);
-  RUN_TEST(test_evaluate_2_PLUS_3, 29);
-  RUN_TEST(test_evaluate_2_PLUS_3_MULTIPLY_4, 73);
-  RUN_TEST(test_evaluate_2_MULTIPLY_3_PLUS_4, 133);
-  RUN_TEST(test_evaluate_LEFT_PARENTHESIS_2_PLUS_3_RIGHT_PARENTHESIS_MULTIPLY_4, 193);
-  RUN_TEST(test_evaluate_2_PLUS_3_MULTIPLY_4_PLUS_5_MULTIPLY_6, 197);
-  RUN_TEST(test_evaluate_2_MULTIPLY_3_PLUS_4_MULTIPLY_5_PLUS_6, 290);
-  RUN_TEST(test_2_OR_3_PLUS_4_MULTIPLY_5_MINUS_6_DIVIDE_10, 383);
-  RUN_TEST(test_LEFT_PARENTHESIS_2_PLUS_3_LEFTPARENTHESIS_MULTIPLY_4, 490);
+  RUN_TEST(test_evaluate_2_PLUS_3, 28);
+  RUN_TEST(test_evaluate_2_PLUS_3_MULTIPLY_4, 72);
+  RUN_TEST(test_evaluate_2_MULTIPLY_3_PLUS_4, 132);
+  RUN_TEST(test_evaluate_2_PLUS_3_MULTIPLY_4_PLUS_5_MULTIPLY_6, 192);
+  RUN_TEST(test_evaluate_2_MULTIPLY_3_PLUS_4_MULTIPLY_5_PLUS_6, 285);
+  RUN_TEST(test_2_OR_3_PLUS_4_MULTIPLY_5_MINUS_6_DIVIDE_10, 378);
+  RUN_TEST(test_LEFT_PARENTHESIS_2_PLUS_3_RIGHT_PARENTHESIS_MULTIPLY_4, 485);
 
   return (UnityEnd());
 }

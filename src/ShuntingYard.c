@@ -57,39 +57,3 @@ int shuntingYard(char *expression){
 	return counter;
 }
 
-int shuntingYard1(char *expression){
-	Tokenizer *tokenizer;
-	Token *token;
-	int i;
-	int counter =0;
-	
-	tokenizer = initTokenizer(expression);
-	if(expression ==NULL){
-		return 0;
-	}
-	while((token = getToken(tokenizer))!=NULL){
-		
-		if(isNumber(token)==NULL)
-		{
-			return 0;
-		}
-		
-		if(isOperator(token)==LEFT_PARENTHESIS){
-			tryEvaluatethenPush(token,&numStack,&opeStack);
-			stackPush(token,&opeStack);
-		}
-		else if(isNumber(token)){
-			stackPush(token,&numStack);
-		}
-		counter ++;
-	}
-	operatorEvaluate(&numStack,&opeStack);
-	
-	while((token = getToken(tokenizer))!=NULL){
-			if(isNumber(token)){
-			stackPush(token,&numStack);
-		}
-	}
-	
-	return counter;
-}

@@ -25,7 +25,6 @@ void test_shunting_yard_should_return_0_if_the_expression_is_null(){
 	TEST_ASSERT_EQUAL(0,check);
 }
 
-
 void test_evaluate_2_PLUS_3(void){
 	int check;
 	//Initialize tokenizer,token and stack
@@ -188,10 +187,6 @@ void test_evaluate_2_MULTIPLY_3_PLUS_4(void){
 	getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("2*3+4");
-}
-
-void test_evaluate_LEFT_PARENTHESIS_2_PLUS_3_RIGHT_PARENTHESIS_MULTIPLY_4(void){
-	
 }
 
 void test_evaluate_2_PLUS_3_MULTIPLY_4_PLUS_5_MULTIPLY_6(void){
@@ -487,7 +482,7 @@ void test_2_OR_3_PLUS_4_MULTIPLY_5_MINUS_6_DIVIDE_10(void){
 	
 }
 
-void test_LEFT_PARENTHESIS_2_PLUS_3_LEFTPARENTHESIS_MULTIPLY_4(void){
+void test_LEFT_PARENTHESIS_2_PLUS_3_RIGHT_PARENTHESIS_MULTIPLY_4(void){
 	Tokenizer tokenizer = {.rawString = "(2+3)*4", .startIndex = 0, .length = 7 };
 	
 	Operator leftBracket = {.type= OPERATOR, .id = LEFT_PARENTHESIS};
@@ -526,7 +521,7 @@ void test_LEFT_PARENTHESIS_2_PLUS_3_LEFTPARENTHESIS_MULTIPLY_4(void){
 	getToken_ExpectAndReturn(&tokenizer,token2);
 	isNumber_ExpectAndReturn(token2,1);
 	stackPush_Expect(token2,&numStack);
-	/*
+	
 	getToken_ExpectAndReturn(&tokenizer,token3);
 	isNumber_ExpectAndReturn(token3,0);
 	isOperator_ExpectAndReturn(token3,1);
@@ -559,8 +554,8 @@ void test_LEFT_PARENTHESIS_2_PLUS_3_LEFTPARENTHESIS_MULTIPLY_4(void){
 	isNumber_ExpectAndReturn(ansToken,1);
 	stackPush_Expect(ansToken,&numStack);
 	getToken_ExpectAndReturn(&tokenizer,NULL);
-	*/
 	
-	shuntingYard1("(2+3)*4");
+	
+	shuntingYard("(2+3)*4");
 	
 }
