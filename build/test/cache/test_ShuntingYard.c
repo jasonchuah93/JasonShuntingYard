@@ -83,47 +83,49 @@ void test_evaluate_2_PLUS_3(void){
 
  initTokenizer_CMockExpectAndReturn(46, "2+3", &tokenizer);
 
- getToken_CMockExpectAndReturn(47, &tokenizer, token1);
-
- isNumber_CMockExpectAndReturn(48, token1, 1);
-
- stackPush_CMockExpect(49, token1, &numStack);
 
 
+ getToken_CMockExpectAndReturn(48, &tokenizer, token1);
 
- getToken_CMockExpectAndReturn(51, &tokenizer, token2);
+ isNumber_CMockExpectAndReturn(49, token1, 1);
 
- isNumber_CMockExpectAndReturn(52, token2, 0);
-
- isOperator_CMockExpectAndReturn(53, token2, 1);
-
- tryEvaluatethenPush_CMockExpect(54, token2, &numStack, &opeStack);
-
- stackPush_CMockExpect(55, token2, &opeStack);
+ stackPush_CMockExpect(50, token1, &numStack);
 
 
 
- getToken_CMockExpectAndReturn(57, &tokenizer, token3);
+ getToken_CMockExpectAndReturn(52, &tokenizer, token2);
 
- isNumber_CMockExpectAndReturn(58, token3, 1);
+ isNumber_CMockExpectAndReturn(53, token2, 0);
 
- stackPush_CMockExpect(59, token3, &numStack);
+ isOperator_CMockExpectAndReturn(54, token2, 1);
 
- getToken_CMockExpectAndReturn(60, &tokenizer, ((void *)0));
+ tryEvaluatethenPush_CMockExpect(55, token2, &numStack, &opeStack);
+
+ stackPush_CMockExpect(56, token2, &opeStack);
+
+
+
+ getToken_CMockExpectAndReturn(58, &tokenizer, token3);
+
+ isNumber_CMockExpectAndReturn(59, token3, 1);
+
+ stackPush_CMockExpect(60, token3, &numStack);
+
+ getToken_CMockExpectAndReturn(61, &tokenizer, ((void *)0));
 
 
 
 
 
- operatorEvaluate_CMockExpect(63, &numStack, &opeStack);
+ operatorEvaluate_CMockExpect(64, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(64, &tokenizer, ansToken);
+ getToken_CMockExpectAndReturn(65, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(65, ansToken, 1);
+ isNumber_CMockExpectAndReturn(66, ansToken, 1);
 
- stackPush_CMockExpect(66, ansToken, &numStack);
+ stackPush_CMockExpect(67, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(67, &tokenizer, ((void *)0));
+ getToken_CMockExpectAndReturn(68, &tokenizer, ((void *)0));
 
 
 
@@ -181,69 +183,69 @@ void test_evaluate_2_PLUS_3_MULTIPLY_4(void){
 
 
 
- initTokenizer_CMockExpectAndReturn(96, "2+3*4", &tokenizer);
+ initTokenizer_CMockExpectAndReturn(97, "2+3*4", &tokenizer);
 
 
 
- getToken_CMockExpectAndReturn(98, &tokenizer, token1);
+ getToken_CMockExpectAndReturn(99, &tokenizer, token1);
 
- isNumber_CMockExpectAndReturn(99, token1, 1);
+ isNumber_CMockExpectAndReturn(100, token1, 1);
 
- stackPush_CMockExpect(100, token1, &numStack);
-
-
-
- getToken_CMockExpectAndReturn(102, &tokenizer, token2);
-
- isNumber_CMockExpectAndReturn(103, token2, 0);
-
- isOperator_CMockExpectAndReturn(104, token2, 1);
-
- tryEvaluatethenPush_CMockExpect(105, token2, &numStack, &opeStack);
-
- stackPush_CMockExpect(106, token2, &opeStack);
+ stackPush_CMockExpect(101, token1, &numStack);
 
 
 
- getToken_CMockExpectAndReturn(108, &tokenizer, token3);
+ getToken_CMockExpectAndReturn(103, &tokenizer, token2);
 
- isNumber_CMockExpectAndReturn(109, token3, 1);
+ isNumber_CMockExpectAndReturn(104, token2, 0);
 
- stackPush_CMockExpect(110, token3, &numStack);
+ isOperator_CMockExpectAndReturn(105, token2, 1);
 
+ tryEvaluatethenPush_CMockExpect(106, token2, &numStack, &opeStack);
 
-
- getToken_CMockExpectAndReturn(112, &tokenizer, token4);
-
- isNumber_CMockExpectAndReturn(113, token4, 0);
-
- isOperator_CMockExpectAndReturn(114, token4, 1);
-
- tryEvaluatethenPush_CMockExpect(115, token4, &numStack, &opeStack);
-
- stackPush_CMockExpect(116, token4, &opeStack);
+ stackPush_CMockExpect(107, token2, &opeStack);
 
 
 
- getToken_CMockExpectAndReturn(118, &tokenizer, token5);
+ getToken_CMockExpectAndReturn(109, &tokenizer, token3);
 
- isNumber_CMockExpectAndReturn(119, token5, 1);
+ isNumber_CMockExpectAndReturn(110, token3, 1);
 
- stackPush_CMockExpect(120, token5, &numStack);
-
- getToken_CMockExpectAndReturn(121, &tokenizer, ((void *)0));
+ stackPush_CMockExpect(111, token3, &numStack);
 
 
 
- operatorEvaluate_CMockExpect(123, &numStack, &opeStack);
+ getToken_CMockExpectAndReturn(113, &tokenizer, token4);
 
- getToken_CMockExpectAndReturn(124, &tokenizer, ansToken);
+ isNumber_CMockExpectAndReturn(114, token4, 0);
 
- isNumber_CMockExpectAndReturn(125, ansToken, 1);
+ isOperator_CMockExpectAndReturn(115, token4, 1);
 
- stackPush_CMockExpect(126, ansToken, &numStack);
+ tryEvaluatethenPush_CMockExpect(116, token4, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(127, &tokenizer, ((void *)0));
+ stackPush_CMockExpect(117, token4, &opeStack);
+
+
+
+ getToken_CMockExpectAndReturn(119, &tokenizer, token5);
+
+ isNumber_CMockExpectAndReturn(120, token5, 1);
+
+ stackPush_CMockExpect(121, token5, &numStack);
+
+ getToken_CMockExpectAndReturn(122, &tokenizer, ((void *)0));
+
+
+
+ operatorEvaluate_CMockExpect(124, &numStack, &opeStack);
+
+ getToken_CMockExpectAndReturn(125, &tokenizer, ansToken);
+
+ isNumber_CMockExpectAndReturn(126, ansToken, 1);
+
+ stackPush_CMockExpect(127, ansToken, &numStack);
+
+ getToken_CMockExpectAndReturn(128, &tokenizer, ((void *)0));
 
 
 
@@ -301,69 +303,69 @@ void test_evaluate_2_MULTIPLY_3_PLUS_4(void){
 
 
 
- initTokenizer_CMockExpectAndReturn(156, "2*3+4", &tokenizer);
+ initTokenizer_CMockExpectAndReturn(157, "2*3+4", &tokenizer);
 
 
 
- getToken_CMockExpectAndReturn(158, &tokenizer, token1);
+ getToken_CMockExpectAndReturn(159, &tokenizer, token1);
 
- isNumber_CMockExpectAndReturn(159, token1, 1);
+ isNumber_CMockExpectAndReturn(160, token1, 1);
 
- stackPush_CMockExpect(160, token1, &numStack);
-
-
-
- getToken_CMockExpectAndReturn(162, &tokenizer, token2);
-
- isNumber_CMockExpectAndReturn(163, token2, 0);
-
- isOperator_CMockExpectAndReturn(164, token2, 1);
-
- tryEvaluatethenPush_CMockExpect(165, token2, &numStack, &opeStack);
-
- stackPush_CMockExpect(166, token2, &opeStack);
+ stackPush_CMockExpect(161, token1, &numStack);
 
 
 
- getToken_CMockExpectAndReturn(168, &tokenizer, token3);
+ getToken_CMockExpectAndReturn(163, &tokenizer, token2);
 
- isNumber_CMockExpectAndReturn(169, token3, 1);
+ isNumber_CMockExpectAndReturn(164, token2, 0);
 
- stackPush_CMockExpect(170, token3, &numStack);
+ isOperator_CMockExpectAndReturn(165, token2, 1);
 
+ tryEvaluatethenPush_CMockExpect(166, token2, &numStack, &opeStack);
 
-
- getToken_CMockExpectAndReturn(172, &tokenizer, token4);
-
- isNumber_CMockExpectAndReturn(173, token4, 0);
-
- isOperator_CMockExpectAndReturn(174, token4, 1);
-
- tryEvaluatethenPush_CMockExpect(175, token4, &numStack, &opeStack);
-
- stackPush_CMockExpect(176, token4, &opeStack);
+ stackPush_CMockExpect(167, token2, &opeStack);
 
 
 
- getToken_CMockExpectAndReturn(178, &tokenizer, token5);
+ getToken_CMockExpectAndReturn(169, &tokenizer, token3);
 
- isNumber_CMockExpectAndReturn(179, token5, 1);
+ isNumber_CMockExpectAndReturn(170, token3, 1);
 
- stackPush_CMockExpect(180, token5, &numStack);
-
- getToken_CMockExpectAndReturn(181, &tokenizer, ((void *)0));
+ stackPush_CMockExpect(171, token3, &numStack);
 
 
 
- operatorEvaluate_CMockExpect(183, &numStack, &opeStack);
+ getToken_CMockExpectAndReturn(173, &tokenizer, token4);
 
- getToken_CMockExpectAndReturn(184, &tokenizer, ansToken);
+ isNumber_CMockExpectAndReturn(174, token4, 0);
 
- isNumber_CMockExpectAndReturn(185, ansToken, 1);
+ isOperator_CMockExpectAndReturn(175, token4, 1);
 
- stackPush_CMockExpect(186, ansToken, &numStack);
+ tryEvaluatethenPush_CMockExpect(176, token4, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(187, &tokenizer, ((void *)0));
+ stackPush_CMockExpect(177, token4, &opeStack);
+
+
+
+ getToken_CMockExpectAndReturn(179, &tokenizer, token5);
+
+ isNumber_CMockExpectAndReturn(180, token5, 1);
+
+ stackPush_CMockExpect(181, token5, &numStack);
+
+ getToken_CMockExpectAndReturn(182, &tokenizer, ((void *)0));
+
+
+
+ operatorEvaluate_CMockExpect(184, &numStack, &opeStack);
+
+ getToken_CMockExpectAndReturn(185, &tokenizer, ansToken);
+
+ isNumber_CMockExpectAndReturn(186, ansToken, 1);
+
+ stackPush_CMockExpect(187, ansToken, &numStack);
+
+ getToken_CMockExpectAndReturn(188, &tokenizer, ((void *)0));
 
 
 
@@ -445,109 +447,109 @@ void test_evaluate_2_PLUS_3_MULTIPLY_4_PLUS_5_MULTIPLY_6(void){
 
 
 
- initTokenizer_CMockExpectAndReturn(228, "2+3*4+5*6", &tokenizer);
+ initTokenizer_CMockExpectAndReturn(229, "2+3*4+5*6", &tokenizer);
 
 
 
- getToken_CMockExpectAndReturn(230, &tokenizer, token1);
+ getToken_CMockExpectAndReturn(231, &tokenizer, token1);
 
- isNumber_CMockExpectAndReturn(231, token1, 1);
+ isNumber_CMockExpectAndReturn(232, token1, 1);
 
- stackPush_CMockExpect(232, token1, &numStack);
-
-
-
- getToken_CMockExpectAndReturn(234, &tokenizer, token2);
-
- isNumber_CMockExpectAndReturn(235, token2, 0);
-
- isOperator_CMockExpectAndReturn(236, token2, 1);
-
- tryEvaluatethenPush_CMockExpect(237, token2, &numStack, &opeStack);
-
- stackPush_CMockExpect(238, token2, &opeStack);
+ stackPush_CMockExpect(233, token1, &numStack);
 
 
 
- getToken_CMockExpectAndReturn(240, &tokenizer, token3);
+ getToken_CMockExpectAndReturn(235, &tokenizer, token2);
 
- isNumber_CMockExpectAndReturn(241, token3, 1);
+ isNumber_CMockExpectAndReturn(236, token2, 0);
 
- stackPush_CMockExpect(242, token3, &numStack);
+ isOperator_CMockExpectAndReturn(237, token2, 1);
 
+ tryEvaluatethenPush_CMockExpect(238, token2, &numStack, &opeStack);
 
-
- getToken_CMockExpectAndReturn(244, &tokenizer, token4);
-
- isNumber_CMockExpectAndReturn(245, token4, 0);
-
- isOperator_CMockExpectAndReturn(246, token4, 1);
-
- tryEvaluatethenPush_CMockExpect(247, token4, &numStack, &opeStack);
-
- stackPush_CMockExpect(248, token4, &opeStack);
+ stackPush_CMockExpect(239, token2, &opeStack);
 
 
 
- getToken_CMockExpectAndReturn(250, &tokenizer, token5);
+ getToken_CMockExpectAndReturn(241, &tokenizer, token3);
 
- isNumber_CMockExpectAndReturn(251, token5, 1);
+ isNumber_CMockExpectAndReturn(242, token3, 1);
 
- stackPush_CMockExpect(252, token5, &numStack);
-
-
-
- getToken_CMockExpectAndReturn(254, &tokenizer, token6);
-
- isNumber_CMockExpectAndReturn(255, token6, 0);
-
- isOperator_CMockExpectAndReturn(256, token6, 1);
-
- tryEvaluatethenPush_CMockExpect(257, token6, &numStack, &opeStack);
-
- stackPush_CMockExpect(258, token6, &opeStack);
+ stackPush_CMockExpect(243, token3, &numStack);
 
 
 
- getToken_CMockExpectAndReturn(260, &tokenizer, token7);
+ getToken_CMockExpectAndReturn(245, &tokenizer, token4);
 
- isNumber_CMockExpectAndReturn(261, token7, 1);
+ isNumber_CMockExpectAndReturn(246, token4, 0);
 
- stackPush_CMockExpect(262, token7, &numStack);
+ isOperator_CMockExpectAndReturn(247, token4, 1);
 
+ tryEvaluatethenPush_CMockExpect(248, token4, &numStack, &opeStack);
 
-
- getToken_CMockExpectAndReturn(264, &tokenizer, token8);
-
- isNumber_CMockExpectAndReturn(265, token8, 0);
-
- isOperator_CMockExpectAndReturn(266, token8, 1);
-
- tryEvaluatethenPush_CMockExpect(267, token8, &numStack, &opeStack);
-
- stackPush_CMockExpect(268, token8, &opeStack);
+ stackPush_CMockExpect(249, token4, &opeStack);
 
 
 
- getToken_CMockExpectAndReturn(270, &tokenizer, token9);
+ getToken_CMockExpectAndReturn(251, &tokenizer, token5);
 
- isNumber_CMockExpectAndReturn(271, token9, 1);
+ isNumber_CMockExpectAndReturn(252, token5, 1);
 
- stackPush_CMockExpect(272, token9, &numStack);
-
- getToken_CMockExpectAndReturn(273, &tokenizer, ((void *)0));
+ stackPush_CMockExpect(253, token5, &numStack);
 
 
 
- operatorEvaluate_CMockExpect(275, &numStack, &opeStack);
+ getToken_CMockExpectAndReturn(255, &tokenizer, token6);
 
- getToken_CMockExpectAndReturn(276, &tokenizer, ansToken);
+ isNumber_CMockExpectAndReturn(256, token6, 0);
 
- isNumber_CMockExpectAndReturn(277, ansToken, 1);
+ isOperator_CMockExpectAndReturn(257, token6, 1);
 
- stackPush_CMockExpect(278, ansToken, &numStack);
+ tryEvaluatethenPush_CMockExpect(258, token6, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(279, &tokenizer, ((void *)0));
+ stackPush_CMockExpect(259, token6, &opeStack);
+
+
+
+ getToken_CMockExpectAndReturn(261, &tokenizer, token7);
+
+ isNumber_CMockExpectAndReturn(262, token7, 1);
+
+ stackPush_CMockExpect(263, token7, &numStack);
+
+
+
+ getToken_CMockExpectAndReturn(265, &tokenizer, token8);
+
+ isNumber_CMockExpectAndReturn(266, token8, 0);
+
+ isOperator_CMockExpectAndReturn(267, token8, 1);
+
+ tryEvaluatethenPush_CMockExpect(268, token8, &numStack, &opeStack);
+
+ stackPush_CMockExpect(269, token8, &opeStack);
+
+
+
+ getToken_CMockExpectAndReturn(271, &tokenizer, token9);
+
+ isNumber_CMockExpectAndReturn(272, token9, 1);
+
+ stackPush_CMockExpect(273, token9, &numStack);
+
+ getToken_CMockExpectAndReturn(274, &tokenizer, ((void *)0));
+
+
+
+ operatorEvaluate_CMockExpect(276, &numStack, &opeStack);
+
+ getToken_CMockExpectAndReturn(277, &tokenizer, ansToken);
+
+ isNumber_CMockExpectAndReturn(278, ansToken, 1);
+
+ stackPush_CMockExpect(279, ansToken, &numStack);
+
+ getToken_CMockExpectAndReturn(280, &tokenizer, ((void *)0));
 
 
 
@@ -631,109 +633,109 @@ void test_evaluate_2_MULTIPLY_3_PLUS_4_MULTIPLY_5_PLUS_6(void){
 
 
 
- initTokenizer_CMockExpectAndReturn(321, "2*3+4*5+6", &tokenizer);
+ initTokenizer_CMockExpectAndReturn(322, "2*3+4*5+6", &tokenizer);
 
 
 
- getToken_CMockExpectAndReturn(323, &tokenizer, token1);
+ getToken_CMockExpectAndReturn(324, &tokenizer, token1);
 
- isNumber_CMockExpectAndReturn(324, token1, 1);
+ isNumber_CMockExpectAndReturn(325, token1, 1);
 
- stackPush_CMockExpect(325, token1, &numStack);
-
-
-
- getToken_CMockExpectAndReturn(327, &tokenizer, token2);
-
- isNumber_CMockExpectAndReturn(328, token2, 0);
-
- isOperator_CMockExpectAndReturn(329, token2, 1);
-
- tryEvaluatethenPush_CMockExpect(330, token2, &numStack, &opeStack);
-
- stackPush_CMockExpect(331, token2, &opeStack);
+ stackPush_CMockExpect(326, token1, &numStack);
 
 
 
- getToken_CMockExpectAndReturn(333, &tokenizer, token3);
+ getToken_CMockExpectAndReturn(328, &tokenizer, token2);
 
- isNumber_CMockExpectAndReturn(334, token3, 1);
+ isNumber_CMockExpectAndReturn(329, token2, 0);
 
- stackPush_CMockExpect(335, token3, &numStack);
+ isOperator_CMockExpectAndReturn(330, token2, 1);
 
+ tryEvaluatethenPush_CMockExpect(331, token2, &numStack, &opeStack);
 
-
- getToken_CMockExpectAndReturn(337, &tokenizer, token4);
-
- isNumber_CMockExpectAndReturn(338, token4, 0);
-
- isOperator_CMockExpectAndReturn(339, token4, 1);
-
- tryEvaluatethenPush_CMockExpect(340, token4, &numStack, &opeStack);
-
- stackPush_CMockExpect(341, token4, &opeStack);
+ stackPush_CMockExpect(332, token2, &opeStack);
 
 
 
- getToken_CMockExpectAndReturn(343, &tokenizer, token5);
+ getToken_CMockExpectAndReturn(334, &tokenizer, token3);
 
- isNumber_CMockExpectAndReturn(344, token5, 1);
+ isNumber_CMockExpectAndReturn(335, token3, 1);
 
- stackPush_CMockExpect(345, token5, &numStack);
-
-
-
- getToken_CMockExpectAndReturn(347, &tokenizer, token6);
-
- isNumber_CMockExpectAndReturn(348, token6, 0);
-
- isOperator_CMockExpectAndReturn(349, token6, 1);
-
- tryEvaluatethenPush_CMockExpect(350, token6, &numStack, &opeStack);
-
- stackPush_CMockExpect(351, token6, &opeStack);
+ stackPush_CMockExpect(336, token3, &numStack);
 
 
 
- getToken_CMockExpectAndReturn(353, &tokenizer, token7);
+ getToken_CMockExpectAndReturn(338, &tokenizer, token4);
 
- isNumber_CMockExpectAndReturn(354, token7, 1);
+ isNumber_CMockExpectAndReturn(339, token4, 0);
 
- stackPush_CMockExpect(355, token7, &numStack);
+ isOperator_CMockExpectAndReturn(340, token4, 1);
 
+ tryEvaluatethenPush_CMockExpect(341, token4, &numStack, &opeStack);
 
-
- getToken_CMockExpectAndReturn(357, &tokenizer, token8);
-
- isNumber_CMockExpectAndReturn(358, token8, 0);
-
- isOperator_CMockExpectAndReturn(359, token8, 1);
-
- tryEvaluatethenPush_CMockExpect(360, token8, &numStack, &opeStack);
-
- stackPush_CMockExpect(361, token8, &opeStack);
+ stackPush_CMockExpect(342, token4, &opeStack);
 
 
 
- getToken_CMockExpectAndReturn(363, &tokenizer, token9);
+ getToken_CMockExpectAndReturn(344, &tokenizer, token5);
 
- isNumber_CMockExpectAndReturn(364, token9, 1);
+ isNumber_CMockExpectAndReturn(345, token5, 1);
 
- stackPush_CMockExpect(365, token9, &numStack);
-
- getToken_CMockExpectAndReturn(366, &tokenizer, ((void *)0));
+ stackPush_CMockExpect(346, token5, &numStack);
 
 
 
- operatorEvaluate_CMockExpect(368, &numStack, &opeStack);
+ getToken_CMockExpectAndReturn(348, &tokenizer, token6);
 
- getToken_CMockExpectAndReturn(369, &tokenizer, ansToken);
+ isNumber_CMockExpectAndReturn(349, token6, 0);
 
- isNumber_CMockExpectAndReturn(370, ansToken, 1);
+ isOperator_CMockExpectAndReturn(350, token6, 1);
 
- stackPush_CMockExpect(371, ansToken, &numStack);
+ tryEvaluatethenPush_CMockExpect(351, token6, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(372, &tokenizer, ((void *)0));
+ stackPush_CMockExpect(352, token6, &opeStack);
+
+
+
+ getToken_CMockExpectAndReturn(354, &tokenizer, token7);
+
+ isNumber_CMockExpectAndReturn(355, token7, 1);
+
+ stackPush_CMockExpect(356, token7, &numStack);
+
+
+
+ getToken_CMockExpectAndReturn(358, &tokenizer, token8);
+
+ isNumber_CMockExpectAndReturn(359, token8, 0);
+
+ isOperator_CMockExpectAndReturn(360, token8, 1);
+
+ tryEvaluatethenPush_CMockExpect(361, token8, &numStack, &opeStack);
+
+ stackPush_CMockExpect(362, token8, &opeStack);
+
+
+
+ getToken_CMockExpectAndReturn(364, &tokenizer, token9);
+
+ isNumber_CMockExpectAndReturn(365, token9, 1);
+
+ stackPush_CMockExpect(366, token9, &numStack);
+
+ getToken_CMockExpectAndReturn(367, &tokenizer, ((void *)0));
+
+
+
+ operatorEvaluate_CMockExpect(369, &numStack, &opeStack);
+
+ getToken_CMockExpectAndReturn(370, &tokenizer, ansToken);
+
+ isNumber_CMockExpectAndReturn(371, ansToken, 1);
+
+ stackPush_CMockExpect(372, ansToken, &numStack);
+
+ getToken_CMockExpectAndReturn(373, &tokenizer, ((void *)0));
 
 
 
@@ -825,129 +827,129 @@ void test_2_OR_3_PLUS_4_MULTIPLY_5_MINUS_6_MINUS_10(void){
 
 
 
- initTokenizer_CMockExpectAndReturn(418, "2|3+4*5-6-10", &tokenizer);
+ initTokenizer_CMockExpectAndReturn(419, "2|3+4*5-6-10", &tokenizer);
 
 
 
- getToken_CMockExpectAndReturn(420, &tokenizer, token1);
+ getToken_CMockExpectAndReturn(421, &tokenizer, token1);
 
- isNumber_CMockExpectAndReturn(421, token1, 1);
+ isNumber_CMockExpectAndReturn(422, token1, 1);
 
- stackPush_CMockExpect(422, token1, &numStack);
+ stackPush_CMockExpect(423, token1, &numStack);
 
 
 
- getToken_CMockExpectAndReturn(424, &tokenizer, token2);
+ getToken_CMockExpectAndReturn(425, &tokenizer, token2);
 
- isNumber_CMockExpectAndReturn(425, token2, 0);
+ isNumber_CMockExpectAndReturn(426, token2, 0);
 
- isOperator_CMockExpectAndReturn(426, token2, 1);
+ isOperator_CMockExpectAndReturn(427, token2, 1);
 
- tryEvaluatethenPush_CMockExpect(427, token2, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(428, token2, &numStack, &opeStack);
 
- stackPush_CMockExpect(428, token2, &opeStack);
+ stackPush_CMockExpect(429, token2, &opeStack);
 
 
 
- getToken_CMockExpectAndReturn(430, &tokenizer, token3);
+ getToken_CMockExpectAndReturn(431, &tokenizer, token3);
 
- isNumber_CMockExpectAndReturn(431, token3, 1);
+ isNumber_CMockExpectAndReturn(432, token3, 1);
 
- stackPush_CMockExpect(432, token3, &numStack);
+ stackPush_CMockExpect(433, token3, &numStack);
 
 
 
- getToken_CMockExpectAndReturn(434, &tokenizer, token4);
+ getToken_CMockExpectAndReturn(435, &tokenizer, token4);
 
- isNumber_CMockExpectAndReturn(435, token4, 0);
+ isNumber_CMockExpectAndReturn(436, token4, 0);
 
- isOperator_CMockExpectAndReturn(436, token4, 1);
+ isOperator_CMockExpectAndReturn(437, token4, 1);
 
- tryEvaluatethenPush_CMockExpect(437, token4, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(438, token4, &numStack, &opeStack);
 
- stackPush_CMockExpect(438, token4, &opeStack);
+ stackPush_CMockExpect(439, token4, &opeStack);
 
 
 
- getToken_CMockExpectAndReturn(440, &tokenizer, token5);
+ getToken_CMockExpectAndReturn(441, &tokenizer, token5);
 
- isNumber_CMockExpectAndReturn(441, token5, 1);
+ isNumber_CMockExpectAndReturn(442, token5, 1);
 
- stackPush_CMockExpect(442, token5, &numStack);
+ stackPush_CMockExpect(443, token5, &numStack);
 
 
 
- getToken_CMockExpectAndReturn(444, &tokenizer, token6);
+ getToken_CMockExpectAndReturn(445, &tokenizer, token6);
 
- isNumber_CMockExpectAndReturn(445, token6, 0);
+ isNumber_CMockExpectAndReturn(446, token6, 0);
 
- isOperator_CMockExpectAndReturn(446, token6, 1);
+ isOperator_CMockExpectAndReturn(447, token6, 1);
 
- tryEvaluatethenPush_CMockExpect(447, token6, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(448, token6, &numStack, &opeStack);
 
- stackPush_CMockExpect(448, token6, &opeStack);
+ stackPush_CMockExpect(449, token6, &opeStack);
 
 
 
- getToken_CMockExpectAndReturn(450, &tokenizer, token7);
+ getToken_CMockExpectAndReturn(451, &tokenizer, token7);
 
- isNumber_CMockExpectAndReturn(451, token7, 1);
+ isNumber_CMockExpectAndReturn(452, token7, 1);
 
- stackPush_CMockExpect(452, token7, &numStack);
+ stackPush_CMockExpect(453, token7, &numStack);
 
 
 
- getToken_CMockExpectAndReturn(454, &tokenizer, token8);
+ getToken_CMockExpectAndReturn(455, &tokenizer, token8);
 
- isNumber_CMockExpectAndReturn(455, token8, 0);
+ isNumber_CMockExpectAndReturn(456, token8, 0);
 
- isOperator_CMockExpectAndReturn(456, token8, 1);
+ isOperator_CMockExpectAndReturn(457, token8, 1);
 
- tryEvaluatethenPush_CMockExpect(457, token8, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(458, token8, &numStack, &opeStack);
 
- stackPush_CMockExpect(458, token8, &opeStack);
+ stackPush_CMockExpect(459, token8, &opeStack);
 
 
 
- getToken_CMockExpectAndReturn(460, &tokenizer, token9);
+ getToken_CMockExpectAndReturn(461, &tokenizer, token9);
 
- isNumber_CMockExpectAndReturn(461, token9, 1);
+ isNumber_CMockExpectAndReturn(462, token9, 1);
 
- stackPush_CMockExpect(462, token9, &numStack);
+ stackPush_CMockExpect(463, token9, &numStack);
 
 
 
- getToken_CMockExpectAndReturn(464, &tokenizer, token10);
+ getToken_CMockExpectAndReturn(465, &tokenizer, token10);
 
- isNumber_CMockExpectAndReturn(465, token10, 0);
+ isNumber_CMockExpectAndReturn(466, token10, 0);
 
- isOperator_CMockExpectAndReturn(466, token10, 1);
+ isOperator_CMockExpectAndReturn(467, token10, 1);
 
- tryEvaluatethenPush_CMockExpect(467, token10, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(468, token10, &numStack, &opeStack);
 
- stackPush_CMockExpect(468, token10, &opeStack);
+ stackPush_CMockExpect(469, token10, &opeStack);
 
 
 
- getToken_CMockExpectAndReturn(470, &tokenizer, token11);
+ getToken_CMockExpectAndReturn(471, &tokenizer, token11);
 
- isNumber_CMockExpectAndReturn(471, token11, 1);
+ isNumber_CMockExpectAndReturn(472, token11, 1);
 
- stackPush_CMockExpect(472, token11, &numStack);
+ stackPush_CMockExpect(473, token11, &numStack);
 
- getToken_CMockExpectAndReturn(473, &tokenizer, ((void *)0));
+ getToken_CMockExpectAndReturn(474, &tokenizer, ((void *)0));
 
 
 
- operatorEvaluate_CMockExpect(475, &numStack, &opeStack);
+ operatorEvaluate_CMockExpect(476, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(476, &tokenizer, ansToken);
+ getToken_CMockExpectAndReturn(477, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(477, ansToken, 1);
+ isNumber_CMockExpectAndReturn(478, ansToken, 1);
 
- stackPush_CMockExpect(478, ansToken, &numStack);
+ stackPush_CMockExpect(479, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(479, &tokenizer, ((void *)0));
+ getToken_CMockExpectAndReturn(480, &tokenizer, ((void *)0));
 
 
 
@@ -1015,93 +1017,93 @@ void test_LEFT_PARENTHESIS_2_PLUS_3_RIGHT_PARENTHESIS_MULTIPLY_4(void){
 
 
 
- initTokenizer_CMockExpectAndReturn(513, "(2+3)*4", &tokenizer);
+ initTokenizer_CMockExpectAndReturn(514, "(2+3)*4", &tokenizer);
 
 
 
- getToken_CMockExpectAndReturn(515, &tokenizer, token1);
+ getToken_CMockExpectAndReturn(516, &tokenizer, token1);
 
- isNumber_CMockExpectAndReturn(516, token1, 0);
+ isNumber_CMockExpectAndReturn(517, token1, 0);
 
- isOperator_CMockExpectAndReturn(517, token1, 1);
+ isOperator_CMockExpectAndReturn(518, token1, 1);
 
- tryEvaluatethenPush_CMockExpect(518, token1, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(519, token1, &numStack, &opeStack);
 
- stackPush_CMockExpect(519, token1, &opeStack);
-
-
-
- getToken_CMockExpectAndReturn(521, &tokenizer, token2);
-
- isNumber_CMockExpectAndReturn(522, token2, 1);
-
- stackPush_CMockExpect(523, token2, &numStack);
+ stackPush_CMockExpect(520, token1, &opeStack);
 
 
 
- getToken_CMockExpectAndReturn(525, &tokenizer, token3);
+ getToken_CMockExpectAndReturn(522, &tokenizer, token2);
 
- isNumber_CMockExpectAndReturn(526, token3, 0);
+ isNumber_CMockExpectAndReturn(523, token2, 1);
 
- isOperator_CMockExpectAndReturn(527, token3, 1);
-
- tryEvaluatethenPush_CMockExpect(528, token3, &numStack, &opeStack);
-
- stackPush_CMockExpect(529, token3, &opeStack);
+ stackPush_CMockExpect(524, token2, &numStack);
 
 
 
- getToken_CMockExpectAndReturn(531, &tokenizer, token4);
+ getToken_CMockExpectAndReturn(526, &tokenizer, token3);
 
- isNumber_CMockExpectAndReturn(532, token4, 1);
+ isNumber_CMockExpectAndReturn(527, token3, 0);
 
- stackPush_CMockExpect(533, token4, &numStack);
+ isOperator_CMockExpectAndReturn(528, token3, 1);
 
+ tryEvaluatethenPush_CMockExpect(529, token3, &numStack, &opeStack);
 
-
- getToken_CMockExpectAndReturn(535, &tokenizer, token5);
-
- isNumber_CMockExpectAndReturn(536, token5, 0);
-
- isOperator_CMockExpectAndReturn(537, token5, 1);
-
- tryEvaluatethenPush_CMockExpect(538, token5, &numStack, &opeStack);
-
- stackPush_CMockExpect(539, token5, &opeStack);
+ stackPush_CMockExpect(530, token3, &opeStack);
 
 
 
- getToken_CMockExpectAndReturn(541, &tokenizer, token6);
+ getToken_CMockExpectAndReturn(532, &tokenizer, token4);
 
- isNumber_CMockExpectAndReturn(542, token6, 0);
+ isNumber_CMockExpectAndReturn(533, token4, 1);
 
- isOperator_CMockExpectAndReturn(543, token6, 1);
-
- tryEvaluatethenPush_CMockExpect(544, token6, &numStack, &opeStack);
-
- stackPush_CMockExpect(545, token6, &opeStack);
+ stackPush_CMockExpect(534, token4, &numStack);
 
 
 
- getToken_CMockExpectAndReturn(547, &tokenizer, token7);
+ getToken_CMockExpectAndReturn(536, &tokenizer, token5);
 
- isNumber_CMockExpectAndReturn(548, token7, 1);
+ isNumber_CMockExpectAndReturn(537, token5, 0);
 
- stackPush_CMockExpect(549, token7, &numStack);
+ isOperator_CMockExpectAndReturn(538, token5, 1);
 
- getToken_CMockExpectAndReturn(550, &tokenizer, ((void *)0));
+ tryEvaluatethenPush_CMockExpect(539, token5, &numStack, &opeStack);
+
+ stackPush_CMockExpect(540, token5, &opeStack);
 
 
 
- operatorEvaluate_CMockExpect(552, &numStack, &opeStack);
+ getToken_CMockExpectAndReturn(542, &tokenizer, token6);
 
- getToken_CMockExpectAndReturn(553, &tokenizer, ansToken);
+ isNumber_CMockExpectAndReturn(543, token6, 0);
 
- isNumber_CMockExpectAndReturn(554, ansToken, 1);
+ isOperator_CMockExpectAndReturn(544, token6, 1);
 
- stackPush_CMockExpect(555, ansToken, &numStack);
+ tryEvaluatethenPush_CMockExpect(545, token6, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(556, &tokenizer, ((void *)0));
+ stackPush_CMockExpect(546, token6, &opeStack);
+
+
+
+ getToken_CMockExpectAndReturn(548, &tokenizer, token7);
+
+ isNumber_CMockExpectAndReturn(549, token7, 1);
+
+ stackPush_CMockExpect(550, token7, &numStack);
+
+ getToken_CMockExpectAndReturn(551, &tokenizer, ((void *)0));
+
+
+
+ operatorEvaluate_CMockExpect(553, &numStack, &opeStack);
+
+ getToken_CMockExpectAndReturn(554, &tokenizer, ansToken);
+
+ isNumber_CMockExpectAndReturn(555, ansToken, 1);
+
+ stackPush_CMockExpect(556, ansToken, &numStack);
+
+ getToken_CMockExpectAndReturn(557, &tokenizer, ((void *)0));
 
 
 
@@ -1167,93 +1169,93 @@ void test_2_MULTIPLY_LEFT_PARENTHESIS_THREE_PLUS_FOUR_RIGHT_PARENTHESIS(void){
 
 
 
- initTokenizer_CMockExpectAndReturn(589, "2*(3+4)", &tokenizer);
+ initTokenizer_CMockExpectAndReturn(590, "2*(3+4)", &tokenizer);
 
 
 
- getToken_CMockExpectAndReturn(591, &tokenizer, token1);
+ getToken_CMockExpectAndReturn(592, &tokenizer, token1);
 
- isNumber_CMockExpectAndReturn(592, token1, 1);
+ isNumber_CMockExpectAndReturn(593, token1, 1);
 
- stackPush_CMockExpect(593, token1, &numStack);
-
-
-
- getToken_CMockExpectAndReturn(595, &tokenizer, token2);
-
- isNumber_CMockExpectAndReturn(596, token2, 0);
-
- isOperator_CMockExpectAndReturn(597, token2, 1);
-
- tryEvaluatethenPush_CMockExpect(598, token2, &numStack, &opeStack);
-
- stackPush_CMockExpect(599, token2, &opeStack);
+ stackPush_CMockExpect(594, token1, &numStack);
 
 
 
- getToken_CMockExpectAndReturn(601, &tokenizer, token3);
+ getToken_CMockExpectAndReturn(596, &tokenizer, token2);
 
- isNumber_CMockExpectAndReturn(602, token3, 0);
+ isNumber_CMockExpectAndReturn(597, token2, 0);
 
- isOperator_CMockExpectAndReturn(603, token3, 1);
+ isOperator_CMockExpectAndReturn(598, token2, 1);
 
- tryEvaluatethenPush_CMockExpect(604, token3, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(599, token2, &numStack, &opeStack);
 
- stackPush_CMockExpect(605, token3, &opeStack);
-
-
-
- getToken_CMockExpectAndReturn(607, &tokenizer, token4);
-
- isNumber_CMockExpectAndReturn(608, token4, 1);
-
- stackPush_CMockExpect(609, token4, &numStack);
+ stackPush_CMockExpect(600, token2, &opeStack);
 
 
 
- getToken_CMockExpectAndReturn(611, &tokenizer, token5);
+ getToken_CMockExpectAndReturn(602, &tokenizer, token3);
 
- isNumber_CMockExpectAndReturn(612, token5, 0);
+ isNumber_CMockExpectAndReturn(603, token3, 0);
 
- isOperator_CMockExpectAndReturn(613, token5, 1);
+ isOperator_CMockExpectAndReturn(604, token3, 1);
 
- tryEvaluatethenPush_CMockExpect(614, token5, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(605, token3, &numStack, &opeStack);
 
- stackPush_CMockExpect(615, token5, &opeStack);
-
-
-
- getToken_CMockExpectAndReturn(617, &tokenizer, token6);
-
- isNumber_CMockExpectAndReturn(618, token6, 1);
-
- stackPush_CMockExpect(619, token6, &numStack);
+ stackPush_CMockExpect(606, token3, &opeStack);
 
 
 
- getToken_CMockExpectAndReturn(621, &tokenizer, token7);
+ getToken_CMockExpectAndReturn(608, &tokenizer, token4);
 
- isNumber_CMockExpectAndReturn(622, token7, 0);
+ isNumber_CMockExpectAndReturn(609, token4, 1);
 
- isOperator_CMockExpectAndReturn(623, token7, 1);
-
- tryEvaluatethenPush_CMockExpect(624, token7, &numStack, &opeStack);
-
- stackPush_CMockExpect(625, token7, &opeStack);
-
- getToken_CMockExpectAndReturn(626, &tokenizer, ((void *)0));
+ stackPush_CMockExpect(610, token4, &numStack);
 
 
 
- operatorEvaluate_CMockExpect(628, &numStack, &opeStack);
+ getToken_CMockExpectAndReturn(612, &tokenizer, token5);
 
- getToken_CMockExpectAndReturn(629, &tokenizer, ansToken);
+ isNumber_CMockExpectAndReturn(613, token5, 0);
 
- isNumber_CMockExpectAndReturn(630, ansToken, 1);
+ isOperator_CMockExpectAndReturn(614, token5, 1);
 
- stackPush_CMockExpect(631, ansToken, &numStack);
+ tryEvaluatethenPush_CMockExpect(615, token5, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(632, &tokenizer, ((void *)0));
+ stackPush_CMockExpect(616, token5, &opeStack);
+
+
+
+ getToken_CMockExpectAndReturn(618, &tokenizer, token6);
+
+ isNumber_CMockExpectAndReturn(619, token6, 1);
+
+ stackPush_CMockExpect(620, token6, &numStack);
+
+
+
+ getToken_CMockExpectAndReturn(622, &tokenizer, token7);
+
+ isNumber_CMockExpectAndReturn(623, token7, 0);
+
+ isOperator_CMockExpectAndReturn(624, token7, 1);
+
+ tryEvaluatethenPush_CMockExpect(625, token7, &numStack, &opeStack);
+
+ stackPush_CMockExpect(626, token7, &opeStack);
+
+ getToken_CMockExpectAndReturn(627, &tokenizer, ((void *)0));
+
+
+
+ operatorEvaluate_CMockExpect(629, &numStack, &opeStack);
+
+ getToken_CMockExpectAndReturn(630, &tokenizer, ansToken);
+
+ isNumber_CMockExpectAndReturn(631, ansToken, 1);
+
+ stackPush_CMockExpect(632, ansToken, &numStack);
+
+ getToken_CMockExpectAndReturn(633, &tokenizer, ((void *)0));
 
 
 
@@ -1289,47 +1291,47 @@ void test_NEGATIVE_2_SHOULD_RETURN_NEGATIVE_2(void){
 
 
 
- initTokenizer_CMockExpectAndReturn(650, "-2", &tokenizer);
+ initTokenizer_CMockExpectAndReturn(651, "-2", &tokenizer);
 
 
 
 
 
- getToken_CMockExpectAndReturn(653, &tokenizer, token1);
+ getToken_CMockExpectAndReturn(654, &tokenizer, token1);
 
- isNumber_CMockExpectAndReturn(654, token1, 0);
+ isNumber_CMockExpectAndReturn(655, token1, 0);
 
- isOperator_CMockExpectAndReturn(655, token1, 1);
+ isOperator_CMockExpectAndReturn(656, token1, 1);
 
- tryEvaluatethenPush_CMockExpect(656, token1, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(657, token1, &numStack, &opeStack);
 
- stackPush_CMockExpect(657, token1, &opeStack);
-
-
-
-
-
- getToken_CMockExpectAndReturn(660, &tokenizer, token2);
-
- isNumber_CMockExpectAndReturn(661, token2, 1);
-
- stackPush_CMockExpect(662, token2, &numStack);
-
- getToken_CMockExpectAndReturn(663, &tokenizer, ((void *)0));
+ stackPush_CMockExpect(658, token1, &opeStack);
 
 
 
 
 
- operatorEvaluate_CMockExpect(666, &numStack, &opeStack);
+ getToken_CMockExpectAndReturn(661, &tokenizer, token2);
 
- getToken_CMockExpectAndReturn(667, &tokenizer, ansToken);
+ isNumber_CMockExpectAndReturn(662, token2, 1);
 
- isNumber_CMockExpectAndReturn(668, ansToken, 1);
+ stackPush_CMockExpect(663, token2, &numStack);
 
- stackPush_CMockExpect(669, ansToken, &numStack);
+ getToken_CMockExpectAndReturn(664, &tokenizer, ((void *)0));
 
- getToken_CMockExpectAndReturn(670, &tokenizer, ((void *)0));
+
+
+
+
+ operatorEvaluate_CMockExpect(667, &numStack, &opeStack);
+
+ getToken_CMockExpectAndReturn(668, &tokenizer, ansToken);
+
+ isNumber_CMockExpectAndReturn(669, ansToken, 1);
+
+ stackPush_CMockExpect(670, ansToken, &numStack);
+
+ getToken_CMockExpectAndReturn(671, &tokenizer, ((void *)0));
 
 
 
@@ -1383,85 +1385,85 @@ void test_NEGATIVE_2_PLUS_NEGATIVE_3(void){
 
 
 
- initTokenizer_CMockExpectAndReturn(697, "-2+-3", &tokenizer);
+ initTokenizer_CMockExpectAndReturn(698, "-2+-3", &tokenizer);
 
 
 
 
 
- getToken_CMockExpectAndReturn(700, &tokenizer, token1);
+ getToken_CMockExpectAndReturn(701, &tokenizer, token1);
 
- isNumber_CMockExpectAndReturn(701, token1, 0);
+ isNumber_CMockExpectAndReturn(702, token1, 0);
 
- isOperator_CMockExpectAndReturn(702, token1, 1);
+ isOperator_CMockExpectAndReturn(703, token1, 1);
 
- tryEvaluatethenPush_CMockExpect(703, token1, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(704, token1, &numStack, &opeStack);
 
- stackPush_CMockExpect(704, token1, &opeStack);
-
-
-
-
-
- getToken_CMockExpectAndReturn(707, &tokenizer, token2);
-
- isNumber_CMockExpectAndReturn(708, token2, 1);
-
- stackPush_CMockExpect(709, token2, &numStack);
+ stackPush_CMockExpect(705, token1, &opeStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(712, &tokenizer, token3);
+ getToken_CMockExpectAndReturn(708, &tokenizer, token2);
 
- isNumber_CMockExpectAndReturn(713, token3, 0);
+ isNumber_CMockExpectAndReturn(709, token2, 1);
 
- isOperator_CMockExpectAndReturn(714, token3, 1);
-
- tryEvaluatethenPush_CMockExpect(715, token3, &numStack, &opeStack);
-
- stackPush_CMockExpect(716, token3, &opeStack);
+ stackPush_CMockExpect(710, token2, &numStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(719, &tokenizer, token4);
+ getToken_CMockExpectAndReturn(713, &tokenizer, token3);
 
- isNumber_CMockExpectAndReturn(720, token4, 0);
+ isNumber_CMockExpectAndReturn(714, token3, 0);
 
- isOperator_CMockExpectAndReturn(721, token4, 1);
+ isOperator_CMockExpectAndReturn(715, token3, 1);
 
- tryEvaluatethenPush_CMockExpect(722, token4, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(716, token3, &numStack, &opeStack);
 
- stackPush_CMockExpect(723, token4, &opeStack);
-
-
-
-
-
- getToken_CMockExpectAndReturn(726, &tokenizer, token5);
-
- isNumber_CMockExpectAndReturn(727, token5, 1);
-
- stackPush_CMockExpect(728, token5, &numStack);
-
- getToken_CMockExpectAndReturn(729, &tokenizer, ((void *)0));
+ stackPush_CMockExpect(717, token3, &opeStack);
 
 
 
 
 
- operatorEvaluate_CMockExpect(732, &numStack, &opeStack);
+ getToken_CMockExpectAndReturn(720, &tokenizer, token4);
 
- getToken_CMockExpectAndReturn(733, &tokenizer, ansToken);
+ isNumber_CMockExpectAndReturn(721, token4, 0);
 
- isNumber_CMockExpectAndReturn(734, ansToken, 1);
+ isOperator_CMockExpectAndReturn(722, token4, 1);
 
- stackPush_CMockExpect(735, ansToken, &numStack);
+ tryEvaluatethenPush_CMockExpect(723, token4, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(736, &tokenizer, ((void *)0));
+ stackPush_CMockExpect(724, token4, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(727, &tokenizer, token5);
+
+ isNumber_CMockExpectAndReturn(728, token5, 1);
+
+ stackPush_CMockExpect(729, token5, &numStack);
+
+ getToken_CMockExpectAndReturn(730, &tokenizer, ((void *)0));
+
+
+
+
+
+ operatorEvaluate_CMockExpect(733, &numStack, &opeStack);
+
+ getToken_CMockExpectAndReturn(734, &tokenizer, ansToken);
+
+ isNumber_CMockExpectAndReturn(735, ansToken, 1);
+
+ stackPush_CMockExpect(736, ansToken, &numStack);
+
+ getToken_CMockExpectAndReturn(737, &tokenizer, ((void *)0));
 
 
 
@@ -1521,103 +1523,103 @@ void test_NEGATIVE_NEGATIVE_NEGATIVE_NEGATIVE_NEGATIVE_2(void){
 
 
 
- initTokenizer_CMockExpectAndReturn(766, "-----2", &tokenizer);
+ initTokenizer_CMockExpectAndReturn(767, "-----2", &tokenizer);
 
 
 
 
 
- getToken_CMockExpectAndReturn(769, &tokenizer, token1);
+ getToken_CMockExpectAndReturn(770, &tokenizer, token1);
 
- isNumber_CMockExpectAndReturn(770, token1, 0);
+ isNumber_CMockExpectAndReturn(771, token1, 0);
 
- isOperator_CMockExpectAndReturn(771, token1, 1);
+ isOperator_CMockExpectAndReturn(772, token1, 1);
 
- tryEvaluatethenPush_CMockExpect(772, token1, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(773, token1, &numStack, &opeStack);
 
- stackPush_CMockExpect(773, token1, &opeStack);
-
-
-
-
-
- getToken_CMockExpectAndReturn(776, &tokenizer, token2);
-
- isNumber_CMockExpectAndReturn(777, token2, 0);
-
- isOperator_CMockExpectAndReturn(778, token2, 1);
-
- tryEvaluatethenPush_CMockExpect(779, token2, &numStack, &opeStack);
-
- stackPush_CMockExpect(780, token2, &opeStack);
+ stackPush_CMockExpect(774, token1, &opeStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(783, &tokenizer, token3);
+ getToken_CMockExpectAndReturn(777, &tokenizer, token2);
 
- isNumber_CMockExpectAndReturn(784, token3, 0);
+ isNumber_CMockExpectAndReturn(778, token2, 0);
 
- isOperator_CMockExpectAndReturn(785, token3, 1);
+ isOperator_CMockExpectAndReturn(779, token2, 1);
 
- tryEvaluatethenPush_CMockExpect(786, token3, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(780, token2, &numStack, &opeStack);
 
- stackPush_CMockExpect(787, token3, &opeStack);
-
-
-
-
-
- getToken_CMockExpectAndReturn(790, &tokenizer, token4);
-
- isNumber_CMockExpectAndReturn(791, token4, 0);
-
- isOperator_CMockExpectAndReturn(792, token4, 1);
-
- tryEvaluatethenPush_CMockExpect(793, token4, &numStack, &opeStack);
-
- stackPush_CMockExpect(794, token4, &opeStack);
+ stackPush_CMockExpect(781, token2, &opeStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(797, &tokenizer, token5);
+ getToken_CMockExpectAndReturn(784, &tokenizer, token3);
 
- isNumber_CMockExpectAndReturn(798, token5, 0);
+ isNumber_CMockExpectAndReturn(785, token3, 0);
 
- isOperator_CMockExpectAndReturn(799, token5, 1);
+ isOperator_CMockExpectAndReturn(786, token3, 1);
 
- tryEvaluatethenPush_CMockExpect(800, token5, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(787, token3, &numStack, &opeStack);
 
- stackPush_CMockExpect(801, token5, &opeStack);
-
-
-
-
-
- getToken_CMockExpectAndReturn(804, &tokenizer, token5);
-
- isNumber_CMockExpectAndReturn(805, token5, 1);
-
- stackPush_CMockExpect(806, token5, &numStack);
-
- getToken_CMockExpectAndReturn(807, &tokenizer, ((void *)0));
+ stackPush_CMockExpect(788, token3, &opeStack);
 
 
 
 
 
- operatorEvaluate_CMockExpect(810, &numStack, &opeStack);
+ getToken_CMockExpectAndReturn(791, &tokenizer, token4);
 
- getToken_CMockExpectAndReturn(811, &tokenizer, ansToken);
+ isNumber_CMockExpectAndReturn(792, token4, 0);
 
- isNumber_CMockExpectAndReturn(812, ansToken, 1);
+ isOperator_CMockExpectAndReturn(793, token4, 1);
 
- stackPush_CMockExpect(813, ansToken, &numStack);
+ tryEvaluatethenPush_CMockExpect(794, token4, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(814, &tokenizer, ((void *)0));
+ stackPush_CMockExpect(795, token4, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(798, &tokenizer, token5);
+
+ isNumber_CMockExpectAndReturn(799, token5, 0);
+
+ isOperator_CMockExpectAndReturn(800, token5, 1);
+
+ tryEvaluatethenPush_CMockExpect(801, token5, &numStack, &opeStack);
+
+ stackPush_CMockExpect(802, token5, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(805, &tokenizer, token5);
+
+ isNumber_CMockExpectAndReturn(806, token5, 1);
+
+ stackPush_CMockExpect(807, token5, &numStack);
+
+ getToken_CMockExpectAndReturn(808, &tokenizer, ((void *)0));
+
+
+
+
+
+ operatorEvaluate_CMockExpect(811, &numStack, &opeStack);
+
+ getToken_CMockExpectAndReturn(812, &tokenizer, ansToken);
+
+ isNumber_CMockExpectAndReturn(813, ansToken, 1);
+
+ stackPush_CMockExpect(814, ansToken, &numStack);
+
+ getToken_CMockExpectAndReturn(815, &tokenizer, ((void *)0));
 
 
 
@@ -1763,282 +1765,530 @@ void test_LEFT_PARENTHESIS_10_MULTIPLY_100_RIGHT_PARENTHESIS_DIVIDE_BY_LEFT_PARE
 
 
 
- initTokenizer_CMockExpectAndReturn(887, "(10*100)/((-5*6)-(2-30))", &tokenizer);
+ initTokenizer_CMockExpectAndReturn(888, "(10*100)/((-5*6)-(2-30))", &tokenizer);
 
 
 
 
 
- getToken_CMockExpectAndReturn(890, &tokenizer, token1);
+ getToken_CMockExpectAndReturn(891, &tokenizer, token1);
 
- isNumber_CMockExpectAndReturn(891, token1, 0);
+ isNumber_CMockExpectAndReturn(892, token1, 0);
 
- isOperator_CMockExpectAndReturn(892, token1, 1);
+ isOperator_CMockExpectAndReturn(893, token1, 1);
 
- tryEvaluatethenPush_CMockExpect(893, token1, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(894, token1, &numStack, &opeStack);
 
- stackPush_CMockExpect(894, token1, &opeStack);
+ stackPush_CMockExpect(895, token1, &opeStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(897, &tokenizer, token2);
+ getToken_CMockExpectAndReturn(898, &tokenizer, token2);
 
- isNumber_CMockExpectAndReturn(898, token2, 1);
+ isNumber_CMockExpectAndReturn(899, token2, 1);
 
- stackPush_CMockExpect(899, token2, &numStack);
+ stackPush_CMockExpect(900, token2, &numStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(902, &tokenizer, token3);
+ getToken_CMockExpectAndReturn(903, &tokenizer, token3);
 
- isNumber_CMockExpectAndReturn(903, token3, 0);
+ isNumber_CMockExpectAndReturn(904, token3, 0);
 
- isOperator_CMockExpectAndReturn(904, token3, 1);
+ isOperator_CMockExpectAndReturn(905, token3, 1);
 
- tryEvaluatethenPush_CMockExpect(905, token3, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(906, token3, &numStack, &opeStack);
 
- stackPush_CMockExpect(906, token3, &opeStack);
+ stackPush_CMockExpect(907, token3, &opeStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(909, &tokenizer, token4);
+ getToken_CMockExpectAndReturn(910, &tokenizer, token4);
 
- isNumber_CMockExpectAndReturn(910, token4, 1);
+ isNumber_CMockExpectAndReturn(911, token4, 1);
 
- stackPush_CMockExpect(911, token4, &numStack);
+ stackPush_CMockExpect(912, token4, &numStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(914, &tokenizer, token5);
+ getToken_CMockExpectAndReturn(915, &tokenizer, token5);
 
- isNumber_CMockExpectAndReturn(915, token5, 0);
+ isNumber_CMockExpectAndReturn(916, token5, 0);
 
- isOperator_CMockExpectAndReturn(916, token5, 1);
+ isOperator_CMockExpectAndReturn(917, token5, 1);
 
- tryEvaluatethenPush_CMockExpect(917, token5, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(918, token5, &numStack, &opeStack);
 
- stackPush_CMockExpect(918, token5, &opeStack);
+ stackPush_CMockExpect(919, token5, &opeStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(921, &tokenizer, token6);
+ getToken_CMockExpectAndReturn(922, &tokenizer, token6);
 
- isNumber_CMockExpectAndReturn(922, token6, 0);
+ isNumber_CMockExpectAndReturn(923, token6, 0);
 
- isOperator_CMockExpectAndReturn(923, token6, 1);
+ isOperator_CMockExpectAndReturn(924, token6, 1);
 
- tryEvaluatethenPush_CMockExpect(924, token6, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(925, token6, &numStack, &opeStack);
 
- stackPush_CMockExpect(925, token6, &opeStack);
+ stackPush_CMockExpect(926, token6, &opeStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(928, &tokenizer, token7);
+ getToken_CMockExpectAndReturn(929, &tokenizer, token7);
 
- isNumber_CMockExpectAndReturn(929, token7, 0);
+ isNumber_CMockExpectAndReturn(930, token7, 0);
 
- isOperator_CMockExpectAndReturn(930, token7, 1);
+ isOperator_CMockExpectAndReturn(931, token7, 1);
 
- tryEvaluatethenPush_CMockExpect(931, token7, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(932, token7, &numStack, &opeStack);
 
- stackPush_CMockExpect(932, token7, &opeStack);
+ stackPush_CMockExpect(933, token7, &opeStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(935, &tokenizer, token8);
+ getToken_CMockExpectAndReturn(936, &tokenizer, token8);
 
- isNumber_CMockExpectAndReturn(936, token8, 0);
+ isNumber_CMockExpectAndReturn(937, token8, 0);
 
- isOperator_CMockExpectAndReturn(937, token8, 1);
+ isOperator_CMockExpectAndReturn(938, token8, 1);
 
- tryEvaluatethenPush_CMockExpect(938, token8, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(939, token8, &numStack, &opeStack);
 
- stackPush_CMockExpect(939, token8, &opeStack);
+ stackPush_CMockExpect(940, token8, &opeStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(942, &tokenizer, token9);
+ getToken_CMockExpectAndReturn(943, &tokenizer, token9);
 
- isNumber_CMockExpectAndReturn(943, token9, 0);
+ isNumber_CMockExpectAndReturn(944, token9, 0);
 
- isOperator_CMockExpectAndReturn(944, token9, 1);
+ isOperator_CMockExpectAndReturn(945, token9, 1);
 
- tryEvaluatethenPush_CMockExpect(945, token9, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(946, token9, &numStack, &opeStack);
 
- stackPush_CMockExpect(946, token9, &opeStack);
+ stackPush_CMockExpect(947, token9, &opeStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(949, &tokenizer, token10);
+ getToken_CMockExpectAndReturn(950, &tokenizer, token10);
 
- isNumber_CMockExpectAndReturn(950, token10, 1);
+ isNumber_CMockExpectAndReturn(951, token10, 1);
 
- stackPush_CMockExpect(951, token10, &numStack);
+ stackPush_CMockExpect(952, token10, &numStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(954, &tokenizer, token11);
+ getToken_CMockExpectAndReturn(955, &tokenizer, token11);
 
- isNumber_CMockExpectAndReturn(955, token11, 0);
+ isNumber_CMockExpectAndReturn(956, token11, 0);
 
- isOperator_CMockExpectAndReturn(956, token11, 1);
+ isOperator_CMockExpectAndReturn(957, token11, 1);
 
- tryEvaluatethenPush_CMockExpect(957, token11, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(958, token11, &numStack, &opeStack);
 
- stackPush_CMockExpect(958, token11, &opeStack);
+ stackPush_CMockExpect(959, token11, &opeStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(961, &tokenizer, token12);
+ getToken_CMockExpectAndReturn(962, &tokenizer, token12);
 
- isNumber_CMockExpectAndReturn(962, token12, 1);
+ isNumber_CMockExpectAndReturn(963, token12, 1);
 
- stackPush_CMockExpect(963, token12, &numStack);
+ stackPush_CMockExpect(964, token12, &numStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(966, &tokenizer, token13);
+ getToken_CMockExpectAndReturn(967, &tokenizer, token13);
 
- isNumber_CMockExpectAndReturn(967, token13, 0);
+ isNumber_CMockExpectAndReturn(968, token13, 0);
 
- isOperator_CMockExpectAndReturn(968, token13, 1);
+ isOperator_CMockExpectAndReturn(969, token13, 1);
 
- tryEvaluatethenPush_CMockExpect(969, token13, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(970, token13, &numStack, &opeStack);
 
- stackPush_CMockExpect(970, token13, &opeStack);
+ stackPush_CMockExpect(971, token13, &opeStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(973, &tokenizer, token14);
+ getToken_CMockExpectAndReturn(974, &tokenizer, token14);
 
- isNumber_CMockExpectAndReturn(974, token14, 0);
+ isNumber_CMockExpectAndReturn(975, token14, 0);
 
- isOperator_CMockExpectAndReturn(975, token14, 1);
+ isOperator_CMockExpectAndReturn(976, token14, 1);
 
- tryEvaluatethenPush_CMockExpect(976, token14, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(977, token14, &numStack, &opeStack);
 
- stackPush_CMockExpect(977, token14, &opeStack);
+ stackPush_CMockExpect(978, token14, &opeStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(980, &tokenizer, token15);
+ getToken_CMockExpectAndReturn(981, &tokenizer, token15);
 
- isNumber_CMockExpectAndReturn(981, token15, 0);
+ isNumber_CMockExpectAndReturn(982, token15, 0);
 
- isOperator_CMockExpectAndReturn(982, token15, 1);
+ isOperator_CMockExpectAndReturn(983, token15, 1);
 
- tryEvaluatethenPush_CMockExpect(983, token15, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(984, token15, &numStack, &opeStack);
 
- stackPush_CMockExpect(984, token15, &opeStack);
+ stackPush_CMockExpect(985, token15, &opeStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(987, &tokenizer, token16);
+ getToken_CMockExpectAndReturn(988, &tokenizer, token16);
 
- isNumber_CMockExpectAndReturn(988, token16, 1);
+ isNumber_CMockExpectAndReturn(989, token16, 1);
 
- stackPush_CMockExpect(989, token16, &numStack);
+ stackPush_CMockExpect(990, token16, &numStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(992, &tokenizer, token17);
+ getToken_CMockExpectAndReturn(993, &tokenizer, token17);
 
- isNumber_CMockExpectAndReturn(993, token17, 0);
+ isNumber_CMockExpectAndReturn(994, token17, 0);
 
- isOperator_CMockExpectAndReturn(994, token17, 1);
+ isOperator_CMockExpectAndReturn(995, token17, 1);
 
- tryEvaluatethenPush_CMockExpect(995, token17, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(996, token17, &numStack, &opeStack);
 
- stackPush_CMockExpect(996, token17, &opeStack);
+ stackPush_CMockExpect(997, token17, &opeStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(999, &tokenizer, token18);
+ getToken_CMockExpectAndReturn(1000, &tokenizer, token18);
 
- isNumber_CMockExpectAndReturn(1000, token18, 1);
+ isNumber_CMockExpectAndReturn(1001, token18, 1);
 
- stackPush_CMockExpect(1001, token18, &numStack);
+ stackPush_CMockExpect(1002, token18, &numStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(1004, &tokenizer, token19);
+ getToken_CMockExpectAndReturn(1005, &tokenizer, token19);
 
- isNumber_CMockExpectAndReturn(1005, token19, 0);
+ isNumber_CMockExpectAndReturn(1006, token19, 0);
 
- isOperator_CMockExpectAndReturn(1006, token19, 1);
+ isOperator_CMockExpectAndReturn(1007, token19, 1);
 
- tryEvaluatethenPush_CMockExpect(1007, token19, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(1008, token19, &numStack, &opeStack);
 
- stackPush_CMockExpect(1008, token19, &opeStack);
+ stackPush_CMockExpect(1009, token19, &opeStack);
 
 
 
 
 
- getToken_CMockExpectAndReturn(1011, &tokenizer, token20);
+ getToken_CMockExpectAndReturn(1012, &tokenizer, token20);
 
- isNumber_CMockExpectAndReturn(1012, token20, 0);
+ isNumber_CMockExpectAndReturn(1013, token20, 0);
 
- isOperator_CMockExpectAndReturn(1013, token20, 1);
+ isOperator_CMockExpectAndReturn(1014, token20, 1);
 
- tryEvaluatethenPush_CMockExpect(1014, token20, &numStack, &opeStack);
+ tryEvaluatethenPush_CMockExpect(1015, token20, &numStack, &opeStack);
 
- stackPush_CMockExpect(1015, token20, &opeStack);
+ stackPush_CMockExpect(1016, token20, &opeStack);
 
- getToken_CMockExpectAndReturn(1016, &tokenizer, ((void *)0));
+ getToken_CMockExpectAndReturn(1017, &tokenizer, ((void *)0));
 
 
 
 
 
- operatorEvaluate_CMockExpect(1019, &numStack, &opeStack);
+ operatorEvaluate_CMockExpect(1020, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(1020, &tokenizer, ansToken);
+ getToken_CMockExpectAndReturn(1021, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(1021, ansToken, 1);
+ isNumber_CMockExpectAndReturn(1022, ansToken, 1);
 
- stackPush_CMockExpect(1022, ansToken, &numStack);
+ stackPush_CMockExpect(1023, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(1023, &tokenizer, ((void *)0));
+ getToken_CMockExpectAndReturn(1024, &tokenizer, ((void *)0));
 
 
 
  shuntingYard("(10*100)/((-5*6)-(2-30))");
+
+}
+
+
+
+void test_NEGATIVE_LEFT_PARENTHESIS_NEGATIVE_2_RIGHT_PARENTHESIS(void){
+
+ Tokenizer tokenizer = {.rawString = "-(-2)", .startIndex = 0, .length = 5 };
+
+
+
+ Operator negative = {.type= OPERATOR, .id = SUBTRACT};
+
+ Token *token1 = (Token*)&negative;
+
+
+
+ Operator leftBracket = {.type= OPERATOR, .id = LEFT_PARENTHESIS};
+
+ Token *token2 = (Token*)&leftBracket;
+
+
+
+ Operator negative2 = {.type= OPERATOR, .id = SUBTRACT};
+
+ Token *token3 = (Token*)&negative2;
+
+
+
+ Number number2 = {.type= NUMBER, .value=2};
+
+ Token *token4 = (Token*)&number2;
+
+
+
+ Operator rightBracket = {.type= OPERATOR, .id = RIGHT_PARENTHESIS};
+
+ Token *token5 = (Token*)&rightBracket;
+
+
+
+ Number answer = {.type=NUMBER, .value=2};
+
+ Token *ansToken = (Token*)&answer;
+
+
+
+
+
+ initTokenizer_CMockExpectAndReturn(1051, "-(-2)", &tokenizer);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(1054, &tokenizer, token1);
+
+ isNumber_CMockExpectAndReturn(1055, token1, 0);
+
+ isOperator_CMockExpectAndReturn(1056, token1, 1);
+
+ tryEvaluatethenPush_CMockExpect(1057, token1, &numStack, &opeStack);
+
+ stackPush_CMockExpect(1058, token1, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(1061, &tokenizer, token2);
+
+ isNumber_CMockExpectAndReturn(1062, token2, 0);
+
+ isOperator_CMockExpectAndReturn(1063, token2, 1);
+
+ tryEvaluatethenPush_CMockExpect(1064, token2, &numStack, &opeStack);
+
+ stackPush_CMockExpect(1065, token2, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(1068, &tokenizer, token3);
+
+ isNumber_CMockExpectAndReturn(1069, token3, 0);
+
+ isOperator_CMockExpectAndReturn(1070, token3, 1);
+
+ tryEvaluatethenPush_CMockExpect(1071, token3, &numStack, &opeStack);
+
+ stackPush_CMockExpect(1072, token3, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(1075, &tokenizer, token4);
+
+ isNumber_CMockExpectAndReturn(1076, token4, 1);
+
+ stackPush_CMockExpect(1077, token4, &numStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(1080, &tokenizer, token5);
+
+ isNumber_CMockExpectAndReturn(1081, token5, 0);
+
+ isOperator_CMockExpectAndReturn(1082, token5, 1);
+
+ tryEvaluatethenPush_CMockExpect(1083, token5, &numStack, &opeStack);
+
+ stackPush_CMockExpect(1084, token5, &opeStack);
+
+ getToken_CMockExpectAndReturn(1085, &tokenizer, ((void *)0));
+
+
+
+
+
+ operatorEvaluate_CMockExpect(1088, &numStack, &opeStack);
+
+ getToken_CMockExpectAndReturn(1089, &tokenizer, ansToken);
+
+ isNumber_CMockExpectAndReturn(1090, ansToken, 1);
+
+ stackPush_CMockExpect(1091, ansToken, &numStack);
+
+ getToken_CMockExpectAndReturn(1092, &tokenizer, ((void *)0));
+
+
+
+ shuntingYard("-(-2)");
+
+
+
+
+
+}
+
+void test_NEGATIVE_LEFT_PARENTHESIS_POSITIVE_LEFT_PARENTHESIS_NEGATIVE_LEFT_PARENTHESIS__NEGATIVE_1_RIGHT_PARENTHESIS_MULTIPLY_3_RIGHT_PARENTHESIS_SUBTRACT_FOUR_RIGHT_PARENTHESIS(void){
+
+ Tokenizer tokenizer = {.rawString = "-(+(-(-1)*3)-4)", .startIndex = 0, .length = 15 };
+
+
+
+ Operator negative = {.type= OPERATOR, .id = SUBTRACT};
+
+ Token *token1 = (Token*)&negative;
+
+
+
+ Operator leftBracket = {.type= OPERATOR, .id = LEFT_PARENTHESIS};
+
+ Token *token2 = (Token*)&leftBracket;
+
+
+
+ Operator plus = {.type= OPERATOR, .id = ADD};
+
+ Token *token3 = (Token*)&plus;
+
+
+
+ Operator leftBracket2 = {.type= OPERATOR, .id = LEFT_PARENTHESIS};
+
+ Token *token4 = (Token*)&leftBracket2;
+
+
+
+ Operator subtract = {.type= OPERATOR, .id = SUBTRACT};
+
+ Token *token5 = (Token*)&subtract;
+
+
+
+ Operator leftBracket3 = {.type= OPERATOR, .id = LEFT_PARENTHESIS};
+
+ Token *token6 = (Token*)&leftBracket3;
+
+
+
+ Operator negative2 = {.type= OPERATOR, .id = SUBTRACT};
+
+ Token *token7 = (Token*)&negative2;
+
+
+
+ Number number1 = {.type= NUMBER, .value=1};
+
+ Token *token8 = (Token*)&number1;
+
+
+
+ Operator rightBracket = {.type= OPERATOR, .id = RIGHT_PARENTHESIS};
+
+ Token *token9 = (Token*)&rightBracket;
+
+
+
+ Operator multiply = {.type= OPERATOR, .id = MULTIPLY};
+
+ Token *token10 = (Token*)&multiply;
+
+
+
+ Number number3 = {.type= NUMBER, .value=3};
+
+ Token *token11 = (Token*)&number3;
+
+
+
+ Operator rightBracket1 = {.type= OPERATOR, .id = RIGHT_PARENTHESIS};
+
+ Token *token12 = (Token*)&rightBracket1;
+
+
+
+ Operator subtract2 = {.type= OPERATOR, .id = SUBTRACT};
+
+ Token *token13 = (Token*)&subtract2;
+
+
+
+ Number number4 = {.type= NUMBER, .value=4};
+
+ Token *token14 = (Token*)&number4;
+
+
+
+ Operator rightBracket2 = {.type= OPERATOR, .id = RIGHT_PARENTHESIS};
+
+ Token *token15 = (Token*)&rightBracket2;
+
+
+
+ Number answer = {.type=NUMBER, .value=1};
+
+ Token *ansToken = (Token*)&answer;
+
+
+
+
+
+
 
 }

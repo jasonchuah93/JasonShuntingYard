@@ -44,6 +44,7 @@ void test_evaluate_2_PLUS_3(void){
 	
 	//Evaluate the expression
 	initTokenizer_ExpectAndReturn("2+3",&tokenizer);
+	
 	getToken_ExpectAndReturn(&tokenizer,token1);
 	isNumber_ExpectAndReturn(token1,1);
 	stackPush_Expect(token1,&numStack);
@@ -1023,4 +1024,128 @@ void test_LEFT_PARENTHESIS_10_MULTIPLY_100_RIGHT_PARENTHESIS_DIVIDE_BY_LEFT_PARE
 	getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("(10*100)/((-5*6)-(2-30))");
+}
+
+void test_NEGATIVE_LEFT_PARENTHESIS_NEGATIVE_2_RIGHT_PARENTHESIS(void){
+	Tokenizer tokenizer = {.rawString = "-(-2)", .startIndex = 0, .length = 5 };
+	
+	Operator negative = {.type= OPERATOR, .id = SUBTRACT};
+	Token *token1 = (Token*)&negative;
+
+	Operator leftBracket = {.type= OPERATOR, .id = LEFT_PARENTHESIS};
+	Token *token2 = (Token*)&leftBracket;
+	
+	Operator negative2 = {.type= OPERATOR, .id = SUBTRACT};
+	Token *token3 = (Token*)&negative2;
+	
+	Number number2 = {.type= NUMBER, .value=2};
+	Token *token4 = (Token*)&number2;
+	
+	Operator rightBracket = {.type= OPERATOR, .id = RIGHT_PARENTHESIS};
+	Token *token5 = (Token*)&rightBracket;
+	
+	Number answer = {.type=NUMBER, .value=2};
+	Token *ansToken = (Token*)&answer;
+	
+	//Evaluate the expression
+	initTokenizer_ExpectAndReturn("-(-2)",&tokenizer);
+	
+	//NEGATIVE
+	getToken_ExpectAndReturn(&tokenizer,token1);
+	isNumber_ExpectAndReturn(token1,0);
+	isOperator_ExpectAndReturn(token1,1);
+	tryEvaluatethenPush_Expect(token1,&numStack,&opeStack);
+	stackPush_Expect(token1,&opeStack);
+	
+	//LEFT BRACKET
+	getToken_ExpectAndReturn(&tokenizer,token2);
+	isNumber_ExpectAndReturn(token2,0);
+	isOperator_ExpectAndReturn(token2,1);
+	tryEvaluatethenPush_Expect(token2,&numStack,&opeStack);
+	stackPush_Expect(token2,&opeStack);
+	
+	//NEGATIVE
+	getToken_ExpectAndReturn(&tokenizer,token3);
+	isNumber_ExpectAndReturn(token3,0);
+	isOperator_ExpectAndReturn(token3,1);
+	tryEvaluatethenPush_Expect(token3,&numStack,&opeStack);
+	stackPush_Expect(token3,&opeStack);
+	
+	//2
+	getToken_ExpectAndReturn(&tokenizer,token4);
+	isNumber_ExpectAndReturn(token4,1);
+	stackPush_Expect(token4,&numStack);
+	
+	//RIGHT BRACKET
+	getToken_ExpectAndReturn(&tokenizer,token5);
+	isNumber_ExpectAndReturn(token5,0);
+	isOperator_ExpectAndReturn(token5,1);
+	tryEvaluatethenPush_Expect(token5,&numStack,&opeStack);
+	stackPush_Expect(token5,&opeStack);
+	getToken_ExpectAndReturn(&tokenizer,NULL);
+	
+	//ANSWER
+	operatorEvaluate_Expect(&numStack,&opeStack);
+	getToken_ExpectAndReturn(&tokenizer,ansToken);
+	isNumber_ExpectAndReturn(ansToken,1);
+	stackPush_Expect(ansToken,&numStack);
+	getToken_ExpectAndReturn(&tokenizer,NULL);
+	
+	shuntingYard("-(-2)");
+	
+	
+}
+void test_NEGATIVE_LEFT_PARENTHESIS_POSITIVE_LEFT_PARENTHESIS_NEGATIVE_LEFT_PARENTHESIS__NEGATIVE_1_RIGHT_PARENTHESIS_MULTIPLY_3_RIGHT_PARENTHESIS_SUBTRACT_FOUR_RIGHT_PARENTHESIS(void){
+	Tokenizer tokenizer = {.rawString = "-(+(-(-1)*3)-4)", .startIndex = 0, .length = 15 };
+	
+	Operator negative = {.type= OPERATOR, .id = SUBTRACT};
+	Token *token1 = (Token*)&negative;
+	
+	Operator leftBracket = {.type= OPERATOR, .id = LEFT_PARENTHESIS};
+	Token *token2 = (Token*)&leftBracket;
+	
+	Operator plus = {.type= OPERATOR, .id = ADD};
+	Token *token3 = (Token*)&plus;
+	
+	Operator leftBracket2 = {.type= OPERATOR, .id = LEFT_PARENTHESIS};
+	Token *token4 = (Token*)&leftBracket2;
+	
+	Operator subtract = {.type= OPERATOR, .id = SUBTRACT};
+	Token *token5 = (Token*)&subtract;
+	
+	Operator leftBracket3 = {.type= OPERATOR, .id = LEFT_PARENTHESIS};
+	Token *token6 = (Token*)&leftBracket3;
+	
+	Operator negative2 = {.type= OPERATOR, .id = SUBTRACT};
+	Token *token7 = (Token*)&negative2;
+	
+	Number number1 = {.type= NUMBER, .value=1};
+	Token *token8 = (Token*)&number1;
+	
+	Operator rightBracket = {.type= OPERATOR, .id = RIGHT_PARENTHESIS};
+	Token *token9 = (Token*)&rightBracket;
+	
+	Operator multiply = {.type= OPERATOR, .id = MULTIPLY};
+	Token *token10 = (Token*)&multiply;
+	
+	Number number3 = {.type= NUMBER, .value=3};
+	Token *token11 = (Token*)&number3;
+	
+	Operator rightBracket1 = {.type= OPERATOR, .id = RIGHT_PARENTHESIS};
+	Token *token12 = (Token*)&rightBracket1;
+	
+	Operator subtract2 = {.type= OPERATOR, .id = SUBTRACT};
+	Token *token13 = (Token*)&subtract2;
+	
+	Number number4 = {.type= NUMBER, .value=4};
+	Token *token14 = (Token*)&number4;
+	
+	Operator rightBracket2 = {.type= OPERATOR, .id = RIGHT_PARENTHESIS};
+	Token *token15 = (Token*)&rightBracket2;
+	
+	Number answer = {.type=NUMBER, .value=1};
+	Token *ansToken = (Token*)&answer;
+	
+	
+	
 }
