@@ -738,3 +738,81 @@ void test_NEGATIVE_2_PLUS_NEGATIVE_3(void){
 	shuntingYard("-2+-3");
 }
 	
+void test_NEGATIVE_NEGATIVE_NEGATIVE_NEGATIVE_NEGATIVE_2(void){
+	Tokenizer tokenizer = {.rawString = "-----2", .startIndex = 0, .length = 6 };
+	
+	Operator negative = {.type= OPERATOR, .id = SUBTRACT};
+	Token *token1 = (Token*)&negative;
+	
+	Operator negative2 = {.type= OPERATOR, .id = SUBTRACT};
+	Token *token2 = (Token*)&negative2;
+	
+	Operator negative3 = {.type= OPERATOR, .id = SUBTRACT};
+	Token *token3 = (Token*)&negative3;
+	
+	Operator negative4 = {.type= OPERATOR, .id = SUBTRACT};
+	Token *token4 = (Token*)&negative4;
+	
+	Operator negative5 = {.type= OPERATOR, .id = SUBTRACT};
+	Token *token5 = (Token*)&negative5;
+	
+	Number number2 = {.type= NUMBER, .value=2};
+	Token *token6 = (Token*)&number2;
+	
+	Number answer = {.type=NUMBER, .value=-2};
+	Token *ansToken = (Token*)&answer;
+	
+	//Evaluate the expression
+	initTokenizer_ExpectAndReturn("-----2",&tokenizer);
+	
+	//NEGATIVE
+	getToken_ExpectAndReturn(&tokenizer,token1);
+	isNumber_ExpectAndReturn(token1,0);
+	isOperator_ExpectAndReturn(token1,1);
+	tryEvaluatethenPush_Expect(token1,&numStack,&opeStack);
+	stackPush_Expect(token1,&opeStack);
+	
+	//NEGATIVE
+	getToken_ExpectAndReturn(&tokenizer,token2);
+	isNumber_ExpectAndReturn(token2,0);
+	isOperator_ExpectAndReturn(token2,1);
+	tryEvaluatethenPush_Expect(token2,&numStack,&opeStack);
+	stackPush_Expect(token2,&opeStack);
+	
+	//NEGATIVE
+	getToken_ExpectAndReturn(&tokenizer,token3);
+	isNumber_ExpectAndReturn(token3,0);
+	isOperator_ExpectAndReturn(token3,1);
+	tryEvaluatethenPush_Expect(token3,&numStack,&opeStack);
+	stackPush_Expect(token3,&opeStack);
+	
+	//NEGATIVE
+	getToken_ExpectAndReturn(&tokenizer,token4);
+	isNumber_ExpectAndReturn(token4,0);
+	isOperator_ExpectAndReturn(token4,1);
+	tryEvaluatethenPush_Expect(token4,&numStack,&opeStack);
+	stackPush_Expect(token4,&opeStack);
+	
+	//NEGATIVE
+	getToken_ExpectAndReturn(&tokenizer,token5);
+	isNumber_ExpectAndReturn(token5,0);
+	isOperator_ExpectAndReturn(token5,1);
+	tryEvaluatethenPush_Expect(token5,&numStack,&opeStack);
+	stackPush_Expect(token5,&opeStack);
+	
+	//2
+	getToken_ExpectAndReturn(&tokenizer,token5);
+	isNumber_ExpectAndReturn(token5,1);
+	stackPush_Expect(token5,&numStack);
+	getToken_ExpectAndReturn(&tokenizer,NULL);
+	
+	//ANSWER
+	operatorEvaluate_Expect(&numStack,&opeStack);
+	getToken_ExpectAndReturn(&tokenizer,ansToken);
+	isNumber_ExpectAndReturn(ansToken,1);
+	stackPush_Expect(ansToken,&numStack);
+	getToken_ExpectAndReturn(&tokenizer,NULL);
+	
+	shuntingYard("-----2");
+	
+}

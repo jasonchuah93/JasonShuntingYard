@@ -36,11 +36,14 @@
 - :test: test_NEGATIVE_2_PLUS_NEGATIVE_3
   :line: 675
   :message: ''
+- :test: test_NEGATIVE_NEGATIVE_NEGATIVE_NEGATIVE_NEGATIVE_2
+  :line: 741
+  :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 11
-  :passed: 11
+  :total: 12
+  :passed: 12
   :failed: 0
   :ignored: 0
 :stdout: []

@@ -1468,3 +1468,161 @@ void test_NEGATIVE_2_PLUS_NEGATIVE_3(void){
  shuntingYard("-2+-3");
 
 }
+
+
+
+void test_NEGATIVE_NEGATIVE_NEGATIVE_NEGATIVE_NEGATIVE_2(void){
+
+ Tokenizer tokenizer = {.rawString = "-----2", .startIndex = 0, .length = 6 };
+
+
+
+ Operator negative = {.type= OPERATOR, .id = SUBTRACT};
+
+ Token *token1 = (Token*)&negative;
+
+
+
+ Operator negative2 = {.type= OPERATOR, .id = SUBTRACT};
+
+ Token *token2 = (Token*)&negative2;
+
+
+
+ Operator negative3 = {.type= OPERATOR, .id = SUBTRACT};
+
+ Token *token3 = (Token*)&negative3;
+
+
+
+ Operator negative4 = {.type= OPERATOR, .id = SUBTRACT};
+
+ Token *token4 = (Token*)&negative4;
+
+
+
+ Operator negative5 = {.type= OPERATOR, .id = SUBTRACT};
+
+ Token *token5 = (Token*)&negative5;
+
+
+
+ Number number2 = {.type= NUMBER, .value=2};
+
+ Token *token6 = (Token*)&number2;
+
+
+
+ Number answer = {.type=NUMBER, .value=-2};
+
+ Token *ansToken = (Token*)&answer;
+
+
+
+
+
+ initTokenizer_CMockExpectAndReturn(766, "-----2", &tokenizer);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(769, &tokenizer, token1);
+
+ isNumber_CMockExpectAndReturn(770, token1, 0);
+
+ isOperator_CMockExpectAndReturn(771, token1, 1);
+
+ tryEvaluatethenPush_CMockExpect(772, token1, &numStack, &opeStack);
+
+ stackPush_CMockExpect(773, token1, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(776, &tokenizer, token2);
+
+ isNumber_CMockExpectAndReturn(777, token2, 0);
+
+ isOperator_CMockExpectAndReturn(778, token2, 1);
+
+ tryEvaluatethenPush_CMockExpect(779, token2, &numStack, &opeStack);
+
+ stackPush_CMockExpect(780, token2, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(783, &tokenizer, token3);
+
+ isNumber_CMockExpectAndReturn(784, token3, 0);
+
+ isOperator_CMockExpectAndReturn(785, token3, 1);
+
+ tryEvaluatethenPush_CMockExpect(786, token3, &numStack, &opeStack);
+
+ stackPush_CMockExpect(787, token3, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(790, &tokenizer, token4);
+
+ isNumber_CMockExpectAndReturn(791, token4, 0);
+
+ isOperator_CMockExpectAndReturn(792, token4, 1);
+
+ tryEvaluatethenPush_CMockExpect(793, token4, &numStack, &opeStack);
+
+ stackPush_CMockExpect(794, token4, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(797, &tokenizer, token5);
+
+ isNumber_CMockExpectAndReturn(798, token5, 0);
+
+ isOperator_CMockExpectAndReturn(799, token5, 1);
+
+ tryEvaluatethenPush_CMockExpect(800, token5, &numStack, &opeStack);
+
+ stackPush_CMockExpect(801, token5, &opeStack);
+
+
+
+
+
+ getToken_CMockExpectAndReturn(804, &tokenizer, token5);
+
+ isNumber_CMockExpectAndReturn(805, token5, 1);
+
+ stackPush_CMockExpect(806, token5, &numStack);
+
+ getToken_CMockExpectAndReturn(807, &tokenizer, ((void *)0));
+
+
+
+
+
+ operatorEvaluate_CMockExpect(810, &numStack, &opeStack);
+
+ getToken_CMockExpectAndReturn(811, &tokenizer, ansToken);
+
+ isNumber_CMockExpectAndReturn(812, ansToken, 1);
+
+ stackPush_CMockExpect(813, ansToken, &numStack);
+
+ getToken_CMockExpectAndReturn(814, &tokenizer, ((void *)0));
+
+
+
+ shuntingYard("-----2");
+
+
+
+}
