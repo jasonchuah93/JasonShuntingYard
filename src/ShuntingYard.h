@@ -44,6 +44,6 @@ typedef struct {
 
 int shuntingYard(char *expression);
 
-int operatorEvaluate1(Stack *numStack , Stack *opeStack);
+void operatorEvaluate1(Stack *numStack , Stack *opeStack);
 
 #endif // ShuntingYard_H

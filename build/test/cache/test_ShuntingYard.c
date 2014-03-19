@@ -119,13 +119,13 @@ void test_evaluate_2_PLUS_3(void){
 
  operatorEvaluate_CMockExpect(64, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(65, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(66, ansToken, 1);
 
- stackPush_CMockExpect(67, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(68, &tokenizer, ((void *)0));
+
+
+
+
 
 
 
@@ -239,13 +239,13 @@ void test_evaluate_2_PLUS_3_MULTIPLY_4(void){
 
  operatorEvaluate_CMockExpect(124, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(125, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(126, ansToken, 1);
 
- stackPush_CMockExpect(127, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(128, &tokenizer, ((void *)0));
+
+
+
+
 
 
 
@@ -359,13 +359,13 @@ void test_evaluate_2_MULTIPLY_3_PLUS_4(void){
 
  operatorEvaluate_CMockExpect(184, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(185, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(186, ansToken, 1);
 
- stackPush_CMockExpect(187, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(188, &tokenizer, ((void *)0));
+
+
+
+
 
 
 
@@ -543,13 +543,13 @@ void test_evaluate_2_PLUS_3_MULTIPLY_4_PLUS_5_MULTIPLY_6(void){
 
  operatorEvaluate_CMockExpect(276, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(277, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(278, ansToken, 1);
 
- stackPush_CMockExpect(279, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(280, &tokenizer, ((void *)0));
+
+
+
+
 
 
 
@@ -729,13 +729,13 @@ void test_evaluate_2_MULTIPLY_3_PLUS_4_MULTIPLY_5_PLUS_6(void){
 
  operatorEvaluate_CMockExpect(369, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(370, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(371, ansToken, 1);
 
- stackPush_CMockExpect(372, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(373, &tokenizer, ((void *)0));
+
+
+
+
 
 
 
@@ -943,13 +943,13 @@ void test_2_OR_3_PLUS_4_MULTIPLY_5_MINUS_6_MINUS_10(void){
 
  operatorEvaluate_CMockExpect(476, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(477, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(478, ansToken, 1);
 
- stackPush_CMockExpect(479, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(480, &tokenizer, ((void *)0));
+
+
+
+
 
 
 
@@ -1097,13 +1097,13 @@ void test_LEFT_PARENTHESIS_2_PLUS_3_RIGHT_PARENTHESIS_MULTIPLY_4(void){
 
  operatorEvaluate_CMockExpect(553, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(554, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(555, ansToken, 1);
 
- stackPush_CMockExpect(556, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(557, &tokenizer, ((void *)0));
+
+
+
+
 
 
 
@@ -1249,13 +1249,13 @@ void test_2_MULTIPLY_LEFT_PARENTHESIS_THREE_PLUS_FOUR_RIGHT_PARENTHESIS(void){
 
  operatorEvaluate_CMockExpect(629, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(630, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(631, ansToken, 1);
 
- stackPush_CMockExpect(632, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(633, &tokenizer, ((void *)0));
+
+
+
+
 
 
 
@@ -1325,13 +1325,13 @@ void test_NEGATIVE_2_SHOULD_RETURN_NEGATIVE_2(void){
 
  operatorEvaluate_CMockExpect(667, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(668, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(669, ansToken, 1);
 
- stackPush_CMockExpect(670, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(671, &tokenizer, ((void *)0));
+
+
+
+
 
 
 
@@ -1457,13 +1457,13 @@ void test_NEGATIVE_2_PLUS_NEGATIVE_3(void){
 
  operatorEvaluate_CMockExpect(733, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(734, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(735, ansToken, 1);
 
- stackPush_CMockExpect(736, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(737, &tokenizer, ((void *)0));
+
+
+
+
 
 
 
@@ -1613,13 +1613,13 @@ void test_NEGATIVE_NEGATIVE_NEGATIVE_NEGATIVE_NEGATIVE_2(void){
 
  operatorEvaluate_CMockExpect(811, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(812, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(813, ansToken, 1);
 
- stackPush_CMockExpect(814, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(815, &tokenizer, ((void *)0));
+
+
+
+
 
 
 
@@ -2031,13 +2031,13 @@ void test_LEFT_PARENTHESIS_10_MULTIPLY_100_RIGHT_PARENTHESIS_DIVIDE_BY_LEFT_PARE
 
  operatorEvaluate_CMockExpect(1020, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(1021, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(1022, ansToken, 1);
 
- stackPush_CMockExpect(1023, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(1024, &tokenizer, ((void *)0));
+
+
+
+
 
 
 
@@ -2167,13 +2167,13 @@ void test_NEGATIVE_LEFT_PARENTHESIS_NEGATIVE_2_RIGHT_PARENTHESIS(void){
 
  operatorEvaluate_CMockExpect(1088, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(1089, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(1090, ansToken, 1);
 
- stackPush_CMockExpect(1091, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(1092, &tokenizer, ((void *)0));
+
+
+
+
 
 
 
@@ -2499,13 +2499,13 @@ void test_NEGATIVE_LEFT_PARENTHESIS_POSITIVE_LEFT_PARENTHESIS_NEGATIVE_LEFT_PARE
 
  operatorEvaluate_CMockExpect(1254, &numStack, &opeStack);
 
- getToken_CMockExpectAndReturn(1255, &tokenizer, ansToken);
 
- isNumber_CMockExpectAndReturn(1256, ansToken, 1);
 
- stackPush_CMockExpect(1257, ansToken, &numStack);
 
- getToken_CMockExpectAndReturn(1258, &tokenizer, ((void *)0));
+
+
+
+
 
 
 

@@ -47,17 +47,17 @@ int shuntingYard(char *expression){
 	}
 	 
 	operatorEvaluate(&numStack,&opeStack);
-	
+	/*
 	while((token = getToken(tokenizer))!=NULL){
 		if(isNumber(token)){
 			stackPush(token,&numStack);
 		}
 	}
-	
+	*/
 	return counter;
 }
 
-int operatorEvaluate1(Stack *numStack , Stack *opeStack){
+void operatorEvaluate1(Stack *numStack , Stack *opeStack){
 	Tokenizer *tokenizer;
 	Token *token;
 	int i;
@@ -73,5 +73,10 @@ int operatorEvaluate1(Stack *numStack , Stack *opeStack){
 		counter ++;
 	}
 	
+	calculate(Operator *opeToken1, Number *numToken1 , Number *numToken2);
+	
+	
 	return counter;
 }	
+
+

@@ -62,10 +62,10 @@ void test_evaluate_2_PLUS_3(void){
 	
 	
 	operatorEvaluate_Expect(&numStack,&opeStack);
-	getToken_ExpectAndReturn(&tokenizer,ansToken);
-	isNumber_ExpectAndReturn(ansToken,1);
-	stackPush_Expect(ansToken,&numStack);
-	getToken_ExpectAndReturn(&tokenizer,NULL);
+	//getToken_ExpectAndReturn(&tokenizer,ansToken);
+	//isNumber_ExpectAndReturn(ansToken,1);
+	//stackPush_Expect(ansToken,&numStack);
+	//getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("2+3");
 }
@@ -122,10 +122,10 @@ void test_evaluate_2_PLUS_3_MULTIPLY_4(void){
 	getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	operatorEvaluate_Expect(&numStack,&opeStack);
-	getToken_ExpectAndReturn(&tokenizer,ansToken);
-	isNumber_ExpectAndReturn(ansToken,1);
-	stackPush_Expect(ansToken,&numStack);
-	getToken_ExpectAndReturn(&tokenizer,NULL);
+	//getToken_ExpectAndReturn(&tokenizer,ansToken);
+	//isNumber_ExpectAndReturn(ansToken,1);
+	//stackPush_Expect(ansToken,&numStack);
+	//getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("2+3*4");
 }	
@@ -182,10 +182,10 @@ void test_evaluate_2_MULTIPLY_3_PLUS_4(void){
 	getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	operatorEvaluate_Expect(&numStack,&opeStack);
-	getToken_ExpectAndReturn(&tokenizer,ansToken);
-	isNumber_ExpectAndReturn(ansToken,1);
-	stackPush_Expect(ansToken,&numStack);
-	getToken_ExpectAndReturn(&tokenizer,NULL);
+	//getToken_ExpectAndReturn(&tokenizer,ansToken);
+	//isNumber_ExpectAndReturn(ansToken,1);
+	//stackPush_Expect(ansToken,&numStack);
+	//getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("2*3+4");
 }
@@ -274,10 +274,10 @@ void test_evaluate_2_PLUS_3_MULTIPLY_4_PLUS_5_MULTIPLY_6(void){
 	getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	operatorEvaluate_Expect(&numStack,&opeStack);
-	getToken_ExpectAndReturn(&tokenizer,ansToken);
-	isNumber_ExpectAndReturn(ansToken,1);
-	stackPush_Expect(ansToken,&numStack);
-	getToken_ExpectAndReturn(&tokenizer,NULL);
+	//getToken_ExpectAndReturn(&tokenizer,ansToken);
+	//isNumber_ExpectAndReturn(ansToken,1);
+	//stackPush_Expect(ansToken,&numStack);
+	//getToken_ExpectAndReturn(&tokenizer,NULL);
 
 	
 	shuntingYard("2+3*4+5*6");
@@ -367,10 +367,10 @@ void test_evaluate_2_MULTIPLY_3_PLUS_4_MULTIPLY_5_PLUS_6(void){
 	getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	operatorEvaluate_Expect(&numStack,&opeStack);
-	getToken_ExpectAndReturn(&tokenizer,ansToken);
-	isNumber_ExpectAndReturn(ansToken,1);
-	stackPush_Expect(ansToken,&numStack);
-	getToken_ExpectAndReturn(&tokenizer,NULL);
+	//getToken_ExpectAndReturn(&tokenizer,ansToken);
+	//isNumber_ExpectAndReturn(ansToken,1);
+	//stackPush_Expect(ansToken,&numStack);
+	//getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("2*3+4*5+6");
 
@@ -474,10 +474,10 @@ void test_2_OR_3_PLUS_4_MULTIPLY_5_MINUS_6_MINUS_10(void){
 	getToken_ExpectAndReturn(&tokenizer,NULL);
 
 	operatorEvaluate_Expect(&numStack,&opeStack);
-	getToken_ExpectAndReturn(&tokenizer,ansToken);
-	isNumber_ExpectAndReturn(ansToken,1);
-	stackPush_Expect(ansToken,&numStack);
-	getToken_ExpectAndReturn(&tokenizer,NULL);
+	//getToken_ExpectAndReturn(&tokenizer,ansToken);
+	//isNumber_ExpectAndReturn(ansToken,1);
+	//stackPush_Expect(ansToken,&numStack);
+	//getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("2|3+4*5-6-10");
 	
@@ -551,10 +551,10 @@ void test_LEFT_PARENTHESIS_2_PLUS_3_RIGHT_PARENTHESIS_MULTIPLY_4(void){
 	getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	operatorEvaluate_Expect(&numStack,&opeStack);
-	getToken_ExpectAndReturn(&tokenizer,ansToken);
-	isNumber_ExpectAndReturn(ansToken,1);
-	stackPush_Expect(ansToken,&numStack);
-	getToken_ExpectAndReturn(&tokenizer,NULL);
+	//getToken_ExpectAndReturn(&tokenizer,ansToken);
+	//isNumber_ExpectAndReturn(ansToken,1);
+	//stackPush_Expect(ansToken,&numStack);
+	//getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("(2+3)*4");
 }
@@ -627,10 +627,10 @@ void test_2_MULTIPLY_LEFT_PARENTHESIS_THREE_PLUS_FOUR_RIGHT_PARENTHESIS(void){
 	getToken_ExpectAndReturn(&tokenizer,NULL);
 	//ANSWER
 	operatorEvaluate_Expect(&numStack,&opeStack);
-	getToken_ExpectAndReturn(&tokenizer,ansToken);
-	isNumber_ExpectAndReturn(ansToken,1);
-	stackPush_Expect(ansToken,&numStack);
-	getToken_ExpectAndReturn(&tokenizer,NULL);
+	//getToken_ExpectAndReturn(&tokenizer,ansToken);
+	//isNumber_ExpectAndReturn(ansToken,1);
+	//stackPush_Expect(ansToken,&numStack);
+	//getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("2*(3+4)");
 }
@@ -665,10 +665,10 @@ void test_NEGATIVE_2_SHOULD_RETURN_NEGATIVE_2(void){
 	
 	//ANSWER
 	operatorEvaluate_Expect(&numStack,&opeStack);
-	getToken_ExpectAndReturn(&tokenizer,ansToken);
-	isNumber_ExpectAndReturn(ansToken,1);
-	stackPush_Expect(ansToken,&numStack);
-	getToken_ExpectAndReturn(&tokenizer,NULL);
+	//getToken_ExpectAndReturn(&tokenizer,ansToken);
+	//isNumber_ExpectAndReturn(ansToken,1);
+	//stackPush_Expect(ansToken,&numStack);
+	//getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("-2");
 }
@@ -731,10 +731,10 @@ void test_NEGATIVE_2_PLUS_NEGATIVE_3(void){
 	
 	//ANSWER
 	operatorEvaluate_Expect(&numStack,&opeStack);
-	getToken_ExpectAndReturn(&tokenizer,ansToken);
-	isNumber_ExpectAndReturn(ansToken,1);
-	stackPush_Expect(ansToken,&numStack);
-	getToken_ExpectAndReturn(&tokenizer,NULL);
+	//getToken_ExpectAndReturn(&tokenizer,ansToken);
+	//isNumber_ExpectAndReturn(ansToken,1);
+	//stackPush_Expect(ansToken,&numStack);
+	//getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("-2+-3");
 }
@@ -809,10 +809,10 @@ void test_NEGATIVE_NEGATIVE_NEGATIVE_NEGATIVE_NEGATIVE_2(void){
 	
 	//ANSWER
 	operatorEvaluate_Expect(&numStack,&opeStack);
-	getToken_ExpectAndReturn(&tokenizer,ansToken);
-	isNumber_ExpectAndReturn(ansToken,1);
-	stackPush_Expect(ansToken,&numStack);
-	getToken_ExpectAndReturn(&tokenizer,NULL);
+	//getToken_ExpectAndReturn(&tokenizer,ansToken);
+	//isNumber_ExpectAndReturn(ansToken,1);
+	//stackPush_Expect(ansToken,&numStack);
+	//getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("-----2");
 	
@@ -1018,10 +1018,10 @@ void test_LEFT_PARENTHESIS_10_MULTIPLY_100_RIGHT_PARENTHESIS_DIVIDE_BY_LEFT_PARE
 	
 	//ANSWER
 	operatorEvaluate_Expect(&numStack,&opeStack);
-	getToken_ExpectAndReturn(&tokenizer,ansToken);
-	isNumber_ExpectAndReturn(ansToken,1);
-	stackPush_Expect(ansToken,&numStack);
-	getToken_ExpectAndReturn(&tokenizer,NULL);
+	//getToken_ExpectAndReturn(&tokenizer,ansToken);
+	//isNumber_ExpectAndReturn(ansToken,1);
+	//stackPush_Expect(ansToken,&numStack);
+	//getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("(10*100)/((-5*6)-(2-30))");
 }
@@ -1086,10 +1086,10 @@ void test_NEGATIVE_LEFT_PARENTHESIS_NEGATIVE_2_RIGHT_PARENTHESIS(void){
 	
 	//ANSWER
 	operatorEvaluate_Expect(&numStack,&opeStack);
-	getToken_ExpectAndReturn(&tokenizer,ansToken);
-	isNumber_ExpectAndReturn(ansToken,1);
-	stackPush_Expect(ansToken,&numStack);
-	getToken_ExpectAndReturn(&tokenizer,NULL);
+	//getToken_ExpectAndReturn(&tokenizer,ansToken);
+	//isNumber_ExpectAndReturn(ansToken,1);
+	//stackPush_Expect(ansToken,&numStack);
+	//getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("-(-2)");
 	
@@ -1252,10 +1252,10 @@ void test_NEGATIVE_LEFT_PARENTHESIS_POSITIVE_LEFT_PARENTHESIS_NEGATIVE_LEFT_PARE
 	
 	//ANSWER
 	operatorEvaluate_Expect(&numStack,&opeStack);
-	getToken_ExpectAndReturn(&tokenizer,ansToken);
-	isNumber_ExpectAndReturn(ansToken,1);
-	stackPush_Expect(ansToken,&numStack);
-	getToken_ExpectAndReturn(&tokenizer,NULL);
+	//getToken_ExpectAndReturn(&tokenizer,ansToken);
+	//isNumber_ExpectAndReturn(ansToken,1);
+	//stackPush_Expect(ansToken,&numStack);
+	//getToken_ExpectAndReturn(&tokenizer,NULL);
 	
 	shuntingYard("-(+(-(-1)*3)-4)");
 }
