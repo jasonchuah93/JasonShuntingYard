@@ -50,8 +50,9 @@
   :message: ''
 :failures:
 - :test: test_operator_evaluate_should_calculate_2_PLUS_3
-  :line: 1264
-  :message: Function 'calculate' called more times than expected.
+  :line: 1278
+  :message: Expected 0x0028FEA0 Was 0x004111C0. Function 'stackPush' called with unexpected
+    value for argument 'element'.
 :ignores: []
 :counts:
   :total: 16

@@ -12,7 +12,7 @@ Stack numStack;
 Stack opeStack;
 
 /*
-	This function is to evaluate expression 
+	This function is to push tokens that tokenize from expression to stack 
 	
 	input  : expression 
 	output : none
@@ -20,7 +20,7 @@ Stack opeStack;
 	Mocking function : 1)initTokenizer(); initialize expression into tokenizer
 					   2)getToken();	  get tokens from the tokenizer
 					   3)stackPush();   push tokens to number stack or operator stack
-					   4)stackPop();   pop tokens from number stack or operator stack
+					  
 */	
 
 int shuntingYard(char *expression){
@@ -48,21 +48,26 @@ int shuntingYard(char *expression){
 	}
 	 
 	operatorEvaluate(&numStack,&opeStack);
-	/*
-	while((token = getToken(tokenizer))!=NULL){
-		if(isNumber(token)){
-			stackPush(token,&numStack);
-		}
-	}
-	*/
+	
 	return counter;
 }
 
+/*
+	This function is to evaluate the expression  
+	
+	input  : token
+	output : none
+	return : final token 
+	Mocking function : 1)stackPop();   pop tokens from number stack or operator stack
+					   2)calculate();  to calculate the token taken into 
+*/	
+
 void operatorEvaluate1(Stack *numStack , Stack *opeStack){
 	Tokenizer *tokenizer;
-	Token *token1;
-	Token *token2;
-	Token *token3;
+	Token *token1; //operator Token
+	Token *token2; // First number token
+	Token *token3; // Second number token
+	Token *resultToken; // The answer
 	Operator *operation;
 	Number *num1;
 	Number *num2;
@@ -79,10 +84,9 @@ void operatorEvaluate1(Stack *numStack , Stack *opeStack){
 		token3=(Token*)stackPop(numStack);
 		num2=(Number*)token3;
 		calculate(operation,num1,num2);
+		stackPush(resultToken,&numStack);
 	}
-	
-	
-	
+
 }	
 
 

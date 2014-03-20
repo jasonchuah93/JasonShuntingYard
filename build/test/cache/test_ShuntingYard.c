@@ -2502,14 +2502,6 @@ void test_NEGATIVE_LEFT_PARENTHESIS_POSITIVE_LEFT_PARENTHESIS_NEGATIVE_LEFT_PARE
 
 
 
-
-
-
-
-
-
-
-
  shuntingYard("-(+(-(-1)*3)-4)");
 
 }
@@ -2544,24 +2536,20 @@ void test_operator_evaluate_should_calculate_2_PLUS_3(void){
 
 
 
- stackPop_CMockExpectAndReturn(1278, &opeStack, token2);
+ stackPop_CMockExpectAndReturn(1274, &opeStack, token2);
 
- stackPop_CMockExpectAndReturn(1279, &numStack, token1);
+ stackPop_CMockExpectAndReturn(1275, &numStack, token1);
 
- stackPop_CMockExpectAndReturn(1280, &numStack, token3);
+ stackPop_CMockExpectAndReturn(1276, &numStack, token3);
 
+ calculate_CMockExpectAndReturn(1277, &plus, &number2, &number3, ansToken);
 
+ stackPush_CMockExpect(1278, ansToken, &numStack);
 
 
 
 
 
  operatorEvaluate1(&numStack,&opeStack);
-
-
-
-
-
-
 
 }
