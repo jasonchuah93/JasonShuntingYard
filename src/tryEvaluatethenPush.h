@@ -1,7 +1,7 @@
 #ifndef __TRYEVALUATETHANPUSH_H__
 #define __TRYEVALUATETHANPUSH_H__
 
-#include "ShuntingYard.h"
+#include "Evaluate.h"
 #include "Stack.h"
 
 

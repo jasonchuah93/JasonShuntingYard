@@ -1,7 +1,7 @@
 #ifndef __CREATENUMBERTOKEN_H__
 #define __CREATENUMBERTOKEN_H__
 
-#include "ShuntingYard.h"
+#include "Evaluate.h"
 
 //Function declaration
 Token *createNumberToken(int number);

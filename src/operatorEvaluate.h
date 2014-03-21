@@ -1,7 +1,7 @@
 #ifndef __OPERATOREVALUATE_H__
 #define __OPERATOREVALUATE_H__
 
-#include "ShuntingYard.h"
+#include "Evaluate.h"
 #include "Stack.h"
 
 

@@ -1,9 +1,10 @@
 ---
-- ShuntingYard.h
+- evaluate.h
 - mock_Stack.h
 - mock_calculateToken.h
 - mock_getToken.h
 - mock_initializeToken.h
 - mock_operatorEvaluate.h
 - mock_tryEvaluatethenPush.h
+- stackForEvaluate.h
 - unity.h
