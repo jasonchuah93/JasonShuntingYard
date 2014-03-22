@@ -41,7 +41,7 @@ typedef struct {
 	char *name;
 }Identifier;
 
-int shuntingYard(char *expression);
+int evaluate(char *expression);
 
 void operatorEvaluate1(Stack *numStack , Stack *opeStack);
 

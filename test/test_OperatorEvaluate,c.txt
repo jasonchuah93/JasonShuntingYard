@@ -1,0 +1,12 @@
+#include "unity.h"
+#include "evaluate.h"
+#include "mock_initializeToken.h"
+#include "mock_getToken.h"
+#include "mock_Stack.h"
+#include "mock_tryEvaluatethenPush.h"
+#include "mock_operatorEvaluate.h"
+#include "mock_calculateToken.h"
+#include "stackForEvaluate.h"
+
+void setUp(void){}
+void tearDown(void){}

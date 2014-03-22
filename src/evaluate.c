@@ -22,7 +22,7 @@
 					  
 */	
 
-int shuntingYard(char *expression){
+int evaluate(char *expression){
 	Tokenizer *tokenizer;
 	Token *token;
 	int i;
